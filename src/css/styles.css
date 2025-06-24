@@ -1,0 +1,33 @@
+/**
+  |============================
+  | include css partials with
+  | default @import url()
+  |============================
+*/
+
+/* Modern normalize */
+@import url('./modern-normalize.min.css');
+
+/* Common styles */
+@import url('./common/reset.css');
+@import url('./common/base.css');
+@import url('./common/animations.css');
+
+/* Controls style */
+/* @import url('./partials/controls/link-icon.css'); */
+
+/* Components style */
+/* @import url('./partials/components/theme-button.css');
+@import url('./partials/components/application-link.css'); */
+
+/* Sections style */
+/* @import url('./partials/header.css');
+@import url('./partials/top-banner.css');
+@import url('./partials/about-us.css');
+@import url('./partials/our-lessons.css');
+@import url('./partials/middle-banner.css');
+@import url('./partials/meet-our-teachers.css');
+@import url('./partials/leave-an-application.css');
+@import url('./partials/what-students-say.css');
+@import url('./partials/footer.css');
+@import url('./partials/mobile-menu.css'); */
