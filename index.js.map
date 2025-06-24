@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../src/js/some-script.js"],"sourcesContent":["(function () {\n  console.log(\"Some JavaScript code\");\n})();\n"],"names":[],"mappings":"usBAAC,UAAY,CACX,QAAQ,IAAI,sBAAsB,CACpC,GAAC"}
