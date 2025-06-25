@@ -43,7 +43,7 @@ export default defineConfig(({ command }) => {
     },
     plugins: [
       injectHTML(),
-      FullReload(['./src/**/**.html']),
+      FullReload(['./src/**/**.html', './src/**/**.js', './src/**/**.css']),
       /*
       TODO: Commented out SortCss due to different behavior in dev and prod builds
       SortCss({
