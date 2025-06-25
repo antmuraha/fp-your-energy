@@ -30,13 +30,72 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   margin: 0;
   font-family: var(--font-main);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
   color: var(--color-text);
+  --section-margin: 40px;
+  --content-padding: 20px;
 }
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+main {
+  flex-grow: 1;
+  padding: 8px var(--content-padding) 0px var(--content-padding);
+}
+
+@media (min-width: 768px) {
+  body {
+    --section-margin: 64px;
+    --content-padding: 32px;
+  }
+  main {
+    padding: 32px var(--content-padding) 0 var(--content-padding);
+  }
+}
+
+@media (min-width: 1440px) {
+  body {
+    --section-margin: 64px;
+    --content-padding: 32px;
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px var(--content-padding) 0px var(--content-padding);
+    width: 1440px;
+    margin: 0 auto;
+  }
+}
+
+input,
+textarea {
+  color: var(--color-text);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+/* Use this class for sections on pages */
+.section {
+  width: 100%;
+  margin-bottom: var(--section-margin);
 }
