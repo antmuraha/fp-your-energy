@@ -14,9 +14,10 @@
 @import url('./common/animations.css');
 
 /* Controls style */
-/* @import url('./partials/controls/link-icon.css'); */
+@import url('./partials/controls/link-icon.css');
 
 /* Components style */
+@import url('./partials/components/social-links.css');
 /* @import url('./partials/components/theme-button.css');
 @import url('./partials/components/application-link.css'); */
 
