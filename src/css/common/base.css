@@ -8,6 +8,8 @@
   --color-border: #eaeaea;
   --color-border-dark: rgba(244, 244, 244, 0.1);
   --color-border-light: #f4f4f4;
+  --color-border-for-light-socials: rgba(36, 36, 36, 0.1);
+  --color-border-for-dark-socials: rgba(244, 244, 244, 0.1);
   --color-text: #242424;
   --color-text-light: #f4f4f4;
   --color-text-muted: #555;
