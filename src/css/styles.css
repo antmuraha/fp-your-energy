@@ -13,6 +13,8 @@
 @import url('./common/base.css');
 @import url('./common/animations.css');
 
+@import url('./footer.css');
+
 /* Controls style */
 @import url('./partials/controls/link-icon.css');
 
@@ -22,9 +24,10 @@
 @import url('./partials/components/application-link.css'); */
 
 /* Sections style */
+@import url('./partials/header.css');
 @import url('./partials/hero-section.css');
 @import url('./partials/tags.css');
-/* @import url('./partials/header.css');
+/*
 @import url('./partials/top-banner.css');
 @import url('./partials/about-us.css');
 @import url('./partials/our-lessons.css');
