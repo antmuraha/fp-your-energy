@@ -13,6 +13,9 @@
 @import url('./common/base.css');
 @import url('./common/animations.css');
 
+
+@import url('./footer.css');
+
 /* Controls style */
 @import url('./partials/controls/link-icon.css');
 
