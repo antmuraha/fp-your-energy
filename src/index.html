@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>YOUR ENERGY</title>
-    <meta name="description" content="Description!" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css?family=Manrope:400,600,700"
-      rel="preload"
-      as="style"
-    />
-    <!-- Preload styles for production -->
-    <link rel="preload" href="./css/styles.css" as="stylesheet" />
-    <!-- Link styles for development -->
-    <link rel="stylesheet" href="./css/styles.css" />
-  </head>
-  <body>
-    <!-- The header content will be here -->
-    <main class="main-content">
-      <!-- The Hero content will be here with #hero-->
-      <load src="./partials/tags.html" />
-      <!-- End Hero section -->
 
-      <!-- The Exercises content will be here with #exercises-->
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR ENERGY</title>
+  <meta name="description" content="Description!" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css?family=Manrope:400,600,700" rel="preload" as="style" />
+  <!-- Preload styles for production -->
+  <link rel="preload" href="./css/styles.css" as="stylesheet" />
+  <!-- Link styles for development -->
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
 
-      <!-- Example-->
-      <load src="./partials/part_1.html" />
-      <load src="./partials/part_1.html" />
-      <load src="./partials/part_1.html" />
-    </main>
-    <!-- The footer content will be here with #footer -->
+<body>
+  <!-- The header content will be here -->
+  <main class="main-content">
+    <!-- The Hero content will be here with #hero-->
+    <load src="./partials/hero_section.html" />
+    <load src="./partials/tags.html" />
+    <!-- End Hero section -->
 
-    <!-- Below, insert the modals -->
-    <script type="module" src="./js/some-script.js" async></script>
-  </body>
+    <!-- The Exercises content will be here with #exercises-->
+
+    <!-- Example-->
+    <load src="./partials/part_1.html" />
+    <load src="./partials/part_1.html" />
+    <load src="./partials/part_1.html" />
+  </main>
+  <!-- The footer content will be here with #footer -->
+
+  <!-- Below, insert the modals -->
+  <script type="module" src="./js/some-script.js" async></script>
+</body>
+
 </html>
