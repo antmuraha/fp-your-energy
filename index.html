@@ -15,8 +15,8 @@
     />
     <!-- Preload styles for production -->
     <!-- Link styles for development -->
-    <script async type="module" crossorigin src="/fp-your-energy/index.js"></script>
-    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-Brs0QusG.css">
+    <script type="module" crossorigin src="/fp-your-energy/index.js"></script>
+    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-CNZolYu_.css">
   </head>
   <body>
     <!-- The header content will be here -->
@@ -57,8 +57,8 @@
 
         <nav class="header-nav-links">
             <ul>
-                <li><a href="#" class="btn-link">Home</a></li>
-                <li><a href="#" class="btn-link">Favorites</a></li>
+                <li><a href="#" class="link-home-btn">Home</a></li>
+                <li><a href="#" class="link-favorites-btn">Favorites</a></li>
             </ul>
         </nav>
 
@@ -115,6 +115,67 @@
 
     </div>
 </header>
+    <div class="mobile-menu {=$class}" id="burgerMenu">
+
+    <button class="close-btn" id="close-mob-menu" type="button" aria-label="Modal window close button">
+        <svg class="close-btn-icon" width="32" height="32">
+            <use href="/fp-your-energy/img/icons/button-close.svg"></use>
+        </svg>
+    </button>
+
+    <nav class="mobile-nav-links">
+        <ul class="nav-list-mobile">
+            <li><a href="#" class="link-home-mobile">Home</a></li>
+            <li><a href="#" class="link-favorites-mobile">Favorites</a></li>
+        </ul>
+    </nav>
+
+    <ul class="social-links {=$class}">
+  <li>
+    <a
+  class="link-icon {=$class-link}"
+  href="https://www.facebook.com/goITclub/"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Link to Facebook"
+>
+  <svg class="socials-icon" width="28" height="28">
+    <use href="/fp-your-energy/img/sprite.svg#icon-facebook"></use>
+  </svg>
+</a>
+
+  </li>
+  <li>
+    <a
+  class="link-icon {=$class-link}"
+  href="https://www.instagram.com/goitclub/ "
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Link to Instagram"
+>
+  <svg class="socials-icon" width="28" height="28">
+    <use href="/fp-your-energy/img/sprite.svg#icon-instagram"></use>
+  </svg>
+</a>
+
+  </li>
+  <li>
+    <a
+  class="link-icon {=$class-link}"
+  href="https://www.youtube.com/c/GoIT"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Link to Youtube"
+>
+  <svg class="socials-icon" width="28" height="28">
+    <use href="/fp-your-energy/img/sprite.svg#icon-youtube"></use>
+  </svg>
+</a>
+
+  </li>
+</ul>
+
+</div>
     <main class="main-content">
       <!-- The Hero content will be here with #hero-->
       <section class="hero-section">
