@@ -1,34 +1,43 @@
 <footer id="footer" class="footer">
   <div class="footer-container">
     <div class="footer-navigation">
-
       <div class="footer-navigation-left">
         <!--Load Logo here and delete this old and in CSS file-->
         <a href="./#" class="footer-logo old-logo">Your Energy </a>
-        <load src="partials/components/social-links.html" class-link="footer-socials-link" />
+        <load
+          src="partials/components/social-links.html"
+          class-link="footer-socials-link"
+        />
       </div>
 
       <div class="footer-navigation-right">
-        <h2 class="footer-title">Transforming your <span style="font-style: italic;">body</span> shape with
-          us</h2>
+        <h2 class="footer-title">
+          Transforming your <span style="font-style: italic">body</span> shape
+          with us
+        </h2>
         <!--Load Subscribe here and delete old one and in CSS file-->
-        <div class="footer-subscribe">
+        <form id="footer-form" class="footer-subscribe">
           <p class="subscribe-text">Subscribe and learn about new exercises!</p>
-          <input class="subscribe-input" type="email" placeholder="Email">
-          <button class="subscribe-btn">Send</button>
-        </div>
+          <input
+            class="subscribe-input"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+            pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+          />
+          <button type="submit" class="subscribe-btn">Send</button>
+        </form>
       </div>
     </div>
 
     <div class="legal-container">
-      <p class="copyright-text">
-        Your Energy. All rights reserved.
-      </p>
+      <p class="copyright-text">Your Energy. All rights reserved.</p>
       <div class="terms-conditions-container">
         <p class="terms-conditions-link1">Privacy Policy</p>
         <p class="terms-conditions-link2">/</p>
         <p class="terms-conditions-link3">Terms of Service</p>
-        <p class="copyright-year"> &copy;2023</p>
+        <p class="copyright-year">&copy;2023</p>
       </div>
     </div>
   </div>
