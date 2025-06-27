@@ -21,6 +21,7 @@
 
 /* Components style */
 @import url('./partials/components/social-links.css');
+@import url('./partials/components/pagination.css');
 /* @import url('./partials/components/theme-button.css');
 @import url('./partials/components/application-link.css'); */
 

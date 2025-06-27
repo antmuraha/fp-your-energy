@@ -10,6 +10,7 @@
   --color-border-light: #f4f4f4;
   --color-border-for-light-socials: rgba(36, 36, 36, 0.1);
   --color-border-for-dark-socials: rgba(244, 244, 244, 0.1);
+  --color-inactive-pagination: #d4d4d4;
   --color-text: #242424;
   --color-text-light: #f4f4f4;
   --color-text-muted: #555;
@@ -25,6 +26,7 @@
   --radius-btn: 30px;
   --radius-img: 10px;
   --transition: 0.2s;
+  --primary-transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 html {
