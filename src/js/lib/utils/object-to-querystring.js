@@ -4,6 +4,10 @@
  * @returns {string} Query string starting with '?' or empty string if no parameters
  */
 export const objectToQueryString = params => {
+  if (!params || typeof params !== 'object') {
+    return '';
+  }
+
   // Remove keys with undefined values
   const filteredParams = Object.fromEntries(
     Object.entries(params).filter(([_, value]) => value !== undefined)
