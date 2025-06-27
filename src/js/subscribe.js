@@ -1,5 +1,5 @@
-import axios from 'axios';
 import iziToast from 'izitoast';
+import client from './api/client.js';
 import 'izitoast/dist/css/iziToast.min.css';
 import { Messages } from './messages.js';
 
@@ -35,15 +35,7 @@ async function subscribe(e) {
 
   try {
     subscribeBtn.disabled = true;
-    const response = await axios.post(
-      'https://your-energy.b.goit.study/api/subscription',
-      formData,
-      {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    const response = await client.subscribe(emailValue);
     if (response.status >= 200 && response.status < 300) {
       form.reset();
       emailInput.style.borderColor = '';
