@@ -9,6 +9,7 @@
     "preview": "npx vite build --base=/ && npx vite preview --base=/"
   },
   "devDependencies": {
+    "@types/node": "^24.0.4",
     "glob": "^11.0.0",
     "postcss": "^8.4.41",
     "postcss-sort-media-queries": "^5.2.0",

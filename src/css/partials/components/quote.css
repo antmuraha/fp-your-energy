@@ -1,0 +1,143 @@
+.quote{
+    background-color: rgba(36, 36, 36, 1);
+    width: 335px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+}
+
+@media screen and (min-width: 768px) {
+    .quote.exercise {
+        width: 400px;
+        padding: 40px;
+    }
+    .quote.favorite {
+          width: 704px;
+          padding: 40px;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .quote.exercise {
+        width: 444px;
+
+    }
+    .quote.favorite {
+        width: 494px;
+    }
+}
+
+.run-icon-container {
+    width: 32px;
+    height: 32px;
+    background: rgba(244, 244, 244, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 18px;
+}
+
+@media screen and (min-width: 768px) {
+    .run-icon-container {
+        margin-right: 16px;
+    }
+}
+
+.run-icon{
+    color: rgba(244, 244, 244, 1);
+}
+
+.quote-right {
+}
+
+.quote-text {
+    display: flex;
+}
+
+.quote-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 20px;
+    color: #F4F4F4;
+    margin-right: 63px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .quote-title {
+        font-size: 24px;
+        line-height: 32px;
+    }
+    .quote-title.exercise {
+        margin-right: 54px;
+    }
+    .quote-title.favorite {
+        margin-right: 358px;
+
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .quote-title.exercise {
+        margin-right: 98px;
+    }
+    .quote-title.favorite {
+        margin-right: 148px;
+    }
+}
+
+.quote-description {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: rgba(244, 244, 244, 0.6);
+    width: 243px;
+    padding-bottom: 16px;
+    padding-top: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .quote-description {
+        padding-bottom: 18px;
+        padding-top: 6px;
+    }
+    .quote-description.exercise {
+        width: 270px;
+    }
+    .quote-description.favorite {
+        width: 574px;
+    }
+}
+
+@media screen and (min-width: 1158px) {
+    .quote-description.exercise {
+        width: 314px;
+        padding-bottom: 8px;
+        padding-top: 6px;
+    }
+    .quote-description.favorite {
+        width: 364px;
+        padding-bottom: 18px;
+        padding-top: 6px;
+    }
+}
+
+.quote-author {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+
+    color: #F4F4F4;
+}
+
+@media screen and (min-width: 768px) {
+    .quote-author {
+        font-size: 16px;
+        line-height: 24px;
+    }
+}
+
+
+
+
