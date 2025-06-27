@@ -59,6 +59,7 @@ async function testClient() {
     });
 }
 
-testClient();
+// Uncomment to test the client
+// testClient();
 
 export {};
