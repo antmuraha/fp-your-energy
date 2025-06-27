@@ -94,16 +94,15 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Submit the form
   modalForm.addEventListener('submit', async e => {
     e.preventDefault();
-    //const exerciseID = 'your-exercise-id'; // ← заміни на актуальний
-    const exerciseID = '64f389465ae26083f39b17a2'; // захардкоджене для тесту
+    //const exerciseID = 'your-exercise-id'; // ← replacement with the actual one
+    const exerciseID = '64f389465ae26083f39b17a2'; // hacked for the test
 
     const emailInput = modalForm.elements['email'];
     const commentInput = modalForm.elements['comment'];
     const email = emailInput.value.trim();
     const review = commentInput.value.trim();
 
-    // 🔸 Читаємо рейтинг (збережений раніше у JS)
-    const rate = selectedRating; // має бути числом від 1 до 5
+    const rate = selectedRating;
 
     if (!emailInput.checkValidity()) {
       alert('Please enter a valid email address.');
