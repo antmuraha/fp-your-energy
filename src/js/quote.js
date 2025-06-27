@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { api } from './api/index.js';
 
 const description = document.querySelector('.quote-description');
