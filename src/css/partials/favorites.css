@@ -1,0 +1,15 @@
+.favorites-content {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background: grey;
+  padding-top: 10rem;
+  opacity: 1;
+  transition: visibility 0s, opacity 0.3s linear;
+}
+
+.favorites-content.hidden {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}

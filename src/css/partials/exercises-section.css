@@ -1,0 +1,54 @@
+.exercises-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.exercises-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.exercises-groups-filter {
+  & > div {
+    cursor: pointer;
+  }
+}
+
+.exercises-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.filters-content {
+  display: flex;
+}
+
+.exercises-filters {
+  columns: 3;
+}
+
+.exercises-card-filter {
+  padding: 5rem;
+  border-radius: 12px;
+  background-size: cover !important;
+  background-repeat: no-repeat;
+
+  color: white;
+}
+
+.exercises-content {
+  display: flex;
+}
+
+.exercises-left {
+  background: grey;
+}
+
+.exercises-list {
+  columns: 2;
+}
+
+.exercises-list.hidden {
+  display: none;
+}
