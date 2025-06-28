@@ -1,4 +1,3 @@
-import iziToast from 'izitoast';
 import client from './api/client.js';
 import 'izitoast/dist/css/iziToast.min.css';
 import { Messages } from './messages.js';
@@ -33,23 +32,18 @@ async function subscribe(e) {
     return Messages.error('Invalid email address');
   }
 
-  try {
-    subscribeBtn.disabled = true;
-    const response = await client.subscribe(emailValue);
-    if (response.status >= 200 && response.status < 300) {
+  subscribeBtn.disabled = true;
+  client
+    .subscribe(emailValue)
+    .then(response => {
       form.reset();
       emailInput.style.borderColor = '';
-      return Messages.success(`${response.data.message}`);
-    } else {
-      console.error('Server Error:', response.status, response.statusText);
-      return Messages.error(
-        `Server Error: ${response.status} ${response.statusText}`
-      );
-    }
-  } catch (err) {
-    console.error('Error:', err.message);
-    return Messages.error(`Error: ${err.message}`);
-  } finally {
-    subscribeBtn.disabled = false;
-  }
+      Messages.success(`${response.data.message}`);
+    })
+    .catch(error => {
+      return Messages.error(error?.data?.message || 'Subscription failed');
+    })
+    .finally(() => {
+      subscribeBtn.disabled = false;
+    });
 }
