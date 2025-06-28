@@ -228,6 +228,7 @@
         <div>Picture</div>
         <div>110 min</div>
     </div>
+    <div class="exercises-wrapper">
     <div class="exercises-list">
         <div
   class="exercises-card-filter"
@@ -410,10 +411,50 @@
 </div>
 
     </div>
+    <div id="exercises-list-pagination-buttons" class="pagination">
+  <div class="arrow-buttons arrow-buttons-left">
+    <button class="page-button arrow double disabled">
+      <svg class="pagination-arrow-icon">
+        <use href="./img/sprite.svg#icon-angle-small-left"></use>
+      </svg>
+      <svg class="pagination-arrow-icon">
+        <use href="./img/sprite.svg#icon-angle-small-left"></use>
+      </svg>
+    </button>
+    <button class="page-button arrow disabled">
+      <svg class="pagination-arrow-icon">
+        <use href="./img/sprite.svg#icon-angle-small-left"></use>
+      </svg>
+    </button>
+  </div>
+  <div class="page-buttons">
+    <button class="page-button active">1</button>
+    <button class="page-button">2</button>
+    <button class="page-button">3</button>
+    <span class="pagination-ellipsis">...</span>
+  </div>
+  <div class="arrow-buttons arrow-buttons-right">
+    <button class="page-button arrow">
+      <svg class="pagination-arrow-icon">
+        <use href="./img/sprite.svg#icon-angle-right-left"></use>
+      </svg>
+    </button>
+    <button class="page-button arrow">
+      <svg class="pagination-arrow-icon">
+        <use href="./img/sprite.svg#icon-angle-right-left"></use>
+      </svg>
+      <svg class="pagination-arrow-icon">
+        <use href="./img/sprite.svg#icon-angle-right-left"></use>
+      </svg>
+    </button>
+  </div>
+</div>
+
+    </div>
   </div>
 </section>
 
-      <template>
+      <template id="templates">
   <div
   class="exercises-card-filter"
   style="
