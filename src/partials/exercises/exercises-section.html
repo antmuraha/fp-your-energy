@@ -3,12 +3,31 @@
     <load src="partials/category-tabs.html" />
 </div>
 <section id="exercises" class="exercises-section">
-  <div class="exercises-content">
-    <div class="exercises-left">
-        <load src="partials/components/quote.html" />
-        <div>Picture</div>
-        <div>110 min</div>
-    </div>
+    <div class="exercises-content">
+        <div class="exercises-left">
+            <load src="partials/components/quote.html" />
+            <picture>
+                <source srcset="public/img/image.webp 1x, public/img/image@2x.webp 2x" />
+                <img src="public/img/image.webp" alt="Exercise motivation" class="exercise-motivation-img" />
+            </picture>
+            <div class="exercise-norm-block">
+                <div class="exercise-norm-header">
+                    <div class="exercise-norm-icon">
+                        <img src="/img/icons/icon.svg" alt="Norm icon" />
+                    </div>
+                    <div class="exercise-norm-content-col">
+                        <div class="exercise-norm-title-label-group">
+                            <span class="exercise-norm-title">110 min</span>
+                            <span class="exercise-norm-label">Daily norm of sports</span>
+                        </div>
+                        <div class="exercise-norm-description">
+                            The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic physical activity throughout the week for adults aged 18-64. However, what happens if we adjust that number to 110 minutes every day? While it might seem like a
+                            high number to hit, dedicating 110 minutes daily to sporting activities may offer unparalleled benefits to physical health, mental well-being, and overall quality of life.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <div class="exercises-wrapper">
     <div class="exercises-filters">
         <load src="partials/exercises/card-filter.html" group="Muscles" filter="abductors" image="'https://ftp.goit.study/img/power-pulse/filters/abductors_ymfukx.jpg'"/>
@@ -27,5 +46,5 @@
     <div class="exercises-list hidden"></div>
     <load src="partials/components/pagination-buttons.html" id="exercises-list-pagination-buttons" />
     </div>
-  </div>
+    </div>
 </section>
