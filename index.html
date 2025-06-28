@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/fp-your-energy/index.js"></script>
     <link rel="modulepreload" crossorigin href="/fp-your-energy/assets/vendor-DVYrn7a6.js">
     <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/vendor-D_nxXpU-.css">
-    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-zFXw-t66.css">
+    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-BP9K2udt.css">
   </head>
   <body>
     <header class="header">
@@ -215,10 +215,10 @@
       <section id="exercises" class="exercises-section">
   <div class="exercises-header">
     <h2>Exercises</h2>
-    <div class="exercises-groups-filter">
-  <div data-group="Muscles">Muscles</div>
-  <div data-group="Body parts">Body parts</div>
-  <div data-group="Equipment">Equipment</div>
+    <div class="tabs-controls">
+  <button class="tab-button active" data-group="Muscles">Muscles</button>
+  <button class="tab-button" data-group="Body parts">Body parts</button>
+  <button class="tab-button" data-group="Equipment">Equipment</button>
 </div>
 
   </div>
@@ -455,24 +455,6 @@
   </div>
 </section>
 
-      <template id="templates">
-  <div
-  class="exercises-card-filter"
-  style="
-    background: linear-gradient(
-        0deg,
-        rgba(17, 17, 17, 0.5) 0%,
-        rgba(17, 17, 17, 0.5) 100%
-      ),
-      url(&quot;{=$image}&quot;) lightgray -56.383px -2px / 129.575% 103.719% no-repeat;
-  "
->
-  <h3 data-filter="{=$filter}">{=$filter}</h3>
-  <div data-group="{=$group}">{=$group}</div>
-</div>
-
-</template>
-
     </main>
     <div class="footer__background">
   <div class="footer__container container_f">
@@ -580,6 +562,24 @@
     <div id="favorites-content" class="favorites-content hidden">
   <h2 class="favorites-title">Favorites</h2>
 </div>
+
+    <template id="templates">
+  <div
+  class="exercises-card-filter"
+  style="
+    background: linear-gradient(
+        0deg,
+        rgba(17, 17, 17, 0.5) 0%,
+        rgba(17, 17, 17, 0.5) 100%
+      ),
+      url(&quot;{=$image}&quot;) lightgray -56.383px -2px / 129.575% 103.719% no-repeat;
+  "
+>
+  <h3 data-filter="{=$filter}">{=$filter}</h3>
+  <div data-group="{=$group}">{=$group}</div>
+</div>
+
+</template>
 
   </body>
 </html>
