@@ -1,0 +1,40 @@
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(4, 4, 4, 0.4);
+}
+
+.modal {
+  position: relative;
+  padding: 40px 20px;
+  border-radius: 20px;
+  background: #242424;
+}
+
+.modal-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.modal-title {
+  color: #f4f4f4;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.modal-rating {
+  display: flex;
+}
+
+.modal-description {
+  color: #f4f4f4;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.modal-buttons {
+}
