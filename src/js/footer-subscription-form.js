@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const rect = ratingStars.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const percent = x / rect.width;
-    selectedRating = Math.round(percent * 5); // значення від 1 до 5
+    selectedRating = Math.round(percent * 5);
 
     ratingValue.textContent = selectedRating.toFixed(1);
     highlightStars(selectedRating);

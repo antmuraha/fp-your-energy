@@ -12,6 +12,7 @@
 }
 
 .modal-content {
+  position: relative;
   width: 430px;
   height: 412px;
   border-radius: 20px;
@@ -31,6 +32,11 @@
   font-size: 24px;
   cursor: pointer;
 }
+
+.modal-close-btn svg {
+  fill: rgba(244, 244, 244, 1);
+}
+
 
 .rating-container {
   display: flex;
