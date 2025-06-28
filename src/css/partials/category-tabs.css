@@ -1,0 +1,48 @@
+.tabs-section {
+  margin-top: 48px;
+}
+
+.tabs-controls {
+  display: flex;
+  justify-content: flex-end; /* tabs are on the right */
+  gap: 32px;
+  margin-bottom: 32px;
+  padding-right: 32px;
+}
+
+.tab-button {
+  position: relative;
+  background: none;
+  border: none;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: rgba(36, 36, 36, 0.6);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.tab-button.active {
+  color: #242424;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  height: 4px;
+  width: 100%;
+  background-color: #242424;
+  border-radius: 2px;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}

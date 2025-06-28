@@ -27,6 +27,7 @@
 /* Sections style */
 @import url('./partials/header.css');
 @import url('./partials/hero-section.css');
+@import url('./partials/category-tabs.css');
 @import url('./partials/tags.css');
 /*
 @import url('./partials/top-banner.css');
