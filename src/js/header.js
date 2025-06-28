@@ -34,8 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener('DOMContentLoaded', () => {
   const homeBtn = document.querySelector('.link-home-btn');
   const favoritesBtn = document.querySelector('.link-favorites-btn');
-  const homeContent = document.getElementById('home-content');
-  const favoritesContent = document.getElementById('favorites-content');
 
   function setActiveNav(active, inactive) {
     active.classList.add('nav-btn-active');
@@ -46,17 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   homeBtn.addEventListener('click', e => {
-    e.preventDefault();
     setActiveNav(homeBtn, favoritesBtn);
-    favoritesContent.classList.add('hidden');
-    homeContent.classList.remove('hidden');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
   favoritesBtn.addEventListener('click', e => {
-    e.preventDefault();
     setActiveNav(favoritesBtn, homeBtn);
-    homeContent.classList.add('hidden');
-    favoritesContent.classList.remove('hidden');
   });
 });
