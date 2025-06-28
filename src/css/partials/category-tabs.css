@@ -1,7 +1,3 @@
-.tabs-section {
-  margin-top: 48px;
-}
-
 .tabs-controls {
   display: flex;
   justify-content: flex-end; /* tabs are on the right */

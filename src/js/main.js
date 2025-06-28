@@ -48,13 +48,12 @@ store.subscribe('showFavorites', (showFavorites, state) => {
   }
 });
 
-// .exercises-groups-filter
-const exercisesGroupsFilter = document.querySelector(
-  '.exercises-groups-filter'
-);
+const exercisesGroupsFilter = document.querySelector('.tabs-controls');
 
 exercisesGroupsFilter.addEventListener('click', e => {
   if (e.target.dataset.group) {
+    exercisesGroupsFilter?.querySelector('.active')?.classList.remove('active');
+    e.target.classList.add('active');
     const group = e.target.dataset.group;
     console.log('Selected category:', group);
     store.setState('selectedGroup', group);
