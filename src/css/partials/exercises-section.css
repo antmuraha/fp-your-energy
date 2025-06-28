@@ -19,30 +19,101 @@
 }
 
 .exercises-filters {
-  columns: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 32px;
+  column-gap: 12px;
 }
 
 .exercises-card-filter {
   padding: 5rem;
   border-radius: 12px;
+  color: white;
+  height: 242px;
+  display: flex;
+  flex-direction: column;
+  background-position: center;
   background-size: cover !important;
   background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
 
-  color: white;
+.exercises-card-filter h3,
+.exercises-card-filter div[data-group] {
+  margin: 0;
+  z-index: 1;
 }
 
 .exercises-content {
   display: flex;
+  gap: 32px;
 }
 
+.exercises-left-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* Exercises Left Block Quote */
+.exercises-left-quote {
+  color: var(--color-bg-card);
+  background: var(--color-text);
+    width: 444px;
+    height: 242px;
+    border-radius: 20px;
+}
+
+/* Exercises Left Block Image */
 .exercises-left {
   background: grey;
+  width: 444px;
+  height: 242px;
+  border-radius: 20px;
 }
 
-.exercises-list {
-  columns: 2;
+.exercises-left-img-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
-.exercises-list.hidden {
-  display: none;
+.exercises-left-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+}
+
+
+/* Exercises Left Block Daily Norm */
+.exercises-left-daily-norm {
+  position: relative;
+  border-radius: 20px;
+}
+
+.exercises-left-daily-norm-logo {
+  position: absolute;
+  top: 40px;
+  left: 40px;
+}
+
+.exercises-left-daily-norm {
+  background: var(--color-bg-card);
+  width: 444px;
+}
+
+.exercises-left-daily-norm-header {
+  margin-top: 40px;
+  margin-left: 90px;
+}
+
+.exercises-left-daily-norm-title {
+  color: rgba(36, 36, 36, 0.6);
+}
+.exercises-daily-sportive-norm-text {
+  color: var(--color-text);
+  margin: 20px 40px 40px 90px;
 }
