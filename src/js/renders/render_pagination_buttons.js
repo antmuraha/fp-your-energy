@@ -1,7 +1,13 @@
 // For src/partials/components/pagination-buttons.html
 
-function renderPaginationButtons(id, currentPage, totalPages) {
-  const paginationContainer = document.getElementById(id);
+function renderPaginationButtons(currentPage, totalPages) {
+  const paginationContainer = document.getElementById("exercises-list-pagination-buttons");
+
+  if (!totalPages || totalPages <= 1 || totalPages == "1") {
+    paginationContainer?.classList.add('hidden');
+    return;
+  };
+  paginationContainer?.classList.remove('hidden');
   const arrowButtonsLeft = paginationContainer.querySelector(
     '.arrow-buttons-left'
   );
@@ -10,19 +16,14 @@ function renderPaginationButtons(id, currentPage, totalPages) {
   );
   const pageButtonsContainer =
     paginationContainer.querySelector('.page-buttons');
-  const pageButtons = pageButtonsContainer.querySelectorAll('.page-button');
 
-  if (totalPages <= 1) {
-    paginationContainer.style.display = 'none';
-    return;
-  }
-
-  pageButtons.innerHTML = ''; // Clear existing buttons
+  pageButtonsContainer.innerHTML = ''; // Clear existing buttons
   for (let i = 1; i <= totalPages; i++) {
     const button = document.createElement('button');
+    button.dataset.page = i;
     button.className = 'page-button';
     button.textContent = i;
-    if (i === currentPage) {
+    if (i == currentPage) {
       button.classList.add('active');
     }
     pageButtonsContainer.appendChild(button);
