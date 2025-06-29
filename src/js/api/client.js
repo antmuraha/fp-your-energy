@@ -1,4 +1,6 @@
 import { api } from './rest-client';
+import sendStateChanges from '../unitls/send_state_changes';
+import localFavorites from '../local_favorites';
 
 const getFilters = async (group, page = 1, limit = 12) => {
   // Get Filters for Exercises by Group
@@ -53,6 +55,22 @@ const subscribe = async email => {
   });
 };
 
+const addToFavorites = async id => {
+  // // Add Exercise to Favorites
+  const item = await getExerciseById(id);
+
+  localFavorites.set([...localFavorites.get(), item.data]);
+  const favorites = localFavorites.get();
+  sendStateChanges('favorites', favorites);
+};
+
+const removeFromFavorites = async id => {
+  // Remove Exercise from Favorites
+  const favorites = localFavorites.get().filter(item => item._id !== id);
+  localFavorites.set(favorites);
+  sendStateChanges('favorites', favorites);
+};
+
 export default {
   getFilters,
   getQuoteOfDay,
@@ -60,4 +78,6 @@ export default {
   addExerciseRating,
   getExerciseById,
   subscribe,
+  addToFavorites,
+  removeFromFavorites,
 };

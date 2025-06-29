@@ -25,6 +25,18 @@
 
 .footer__background {
   background-color: black;
+  margin-top: 80px;
+}
+@media screen and (min-width: 768px) {
+  .footer__background {
+    margin-top: 100px;
+  }
+  
+}
+@media screen and (min-width: 1440px) {
+  .footer__background {
+    margin-top: 120px;
+  }
 }
 
 .footer__container {
@@ -41,11 +53,11 @@
   }
 }
 
-@media screen and (min-width: 1440px) {
+/* @media screen and (min-width: 1440px) {
   .footer__container {
     margin-top: 68px;
   }
-}
+} */
 
 .footer__logo {
   fill: var(--color-bg);

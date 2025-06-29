@@ -191,7 +191,7 @@
 
 .exercise-norm-block {
   width: 444px;
-  height: 315px;
+  min-height: 315px;
   border-radius: 20px;
   background: #fff;
   padding: 20px;
