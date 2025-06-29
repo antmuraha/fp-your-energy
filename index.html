@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Manrope:400,600,700"
+      href="https://fonts.googleapis.com/css?family=DM+Sans:400,600,700"
       rel="preload"
       as="style"
     />
@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/fp-your-energy/index.js"></script>
     <link rel="modulepreload" crossorigin href="/fp-your-energy/assets/vendor-DVYrn7a6.js">
     <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/vendor-D_nxXpU-.css">
-    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-DzXGq1UM.css">
+    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-zIQgVzYA.css">
   </head>
   <body>
     <header class="header">
@@ -686,33 +686,55 @@
   </div>
 </div>
 
-    <!-- Rating Modal -->
-<div id="modal-rating" style="display: none" class="modal-overlay">
-  <div class="modal-content">
-    <button id="modal-close" class="modal-close-btn" aria-label="Close modal">
-      <img src="/fp-your-energy/img/icons/хIcon.svg" alt="Close" />
-    </button>
+    <div class="backdrop">
+    <div class="modal">
+        <button type="button" class="modal-close-btn">
+            <svg>
+                <use href="../../public/img/icons/close.svg" />
+            </svg>
+        </button>
+        <img src="" alt="exercise demo" class="modal-img">
+        <div class="modal-main-content">
+            <h2 class="modal-title"></h2>
+            <div class="modal-rating">
+                <p class="modal-rate-value">4.0</p>
+                <div>icons</div>
+            </div>
+            <hr>
+            <div class="exercise-info-cont">
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Target</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Body Part</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Equipment</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Popular</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Burned calories</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+            </div>
 
-    <label for="rating" class="modal-label">Rating</label>
-    <div class="rating-container">
-      <span id="rating-value">0.0</span>
-      <div class="stars" id="rating-stars">
-        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
-        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
-        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
-        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
-        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
-      </div>
+            <hr>
+            <p class="modal-description"></p>
+            <div class="modal-buttons">
+                <button type="button" class="btn-favorite">Add to favorites <svg class="icon-favorite">
+                        <use href="/fp-your-energy/img/sprite.svg#icon-heart" />
+                    </svg></button>
+                <button type="button" class="btn-rating">Give a rating</button>
+            </div>
+        </div>
     </div>
-
-    <form id="subscribe-details-form">
-      <input type="email" name="email" id="modal-email" placeholder="Email" required pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
-      <textarea name="comment" placeholder="Your comment" required rows="3"></textarea>
-      <button type="submit">Send</button>
-    </form>
-  </div>
 </div>
-
     <template id="templates">
   <div
   class="exercises-card-filter"
@@ -775,5 +797,33 @@
 
 </template>
 
+    <!-- Rating Modal -->
+<div id="modal-rating" style="display: none" class="modal-overlay">
+  <div class="modal-content">
+    <button id="modal-close" class="modal-close-btn" aria-label="Close modal">
+      <img src="/fp-your-energy/img/icons/хIcon.svg" alt="Close" />
+    </button>
+
+    <label for="rating" class="modal-label">Rating</label>
+    <div class="rating-container">
+      <span id="rating-value">0.0</span>
+      <div class="stars" id="rating-stars">
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+      </div>
+    </div>
+
+    <form id="subscribe-details-form">
+      <input type="email" name="email" id="modal-email" placeholder="Email" required pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
+      <textarea name="comment" placeholder="Your comment" required rows="3"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+    <!-- <span class="loader"></span> -->
   </body>
 </html>
