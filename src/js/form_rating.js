@@ -1,26 +1,10 @@
+import { Messages } from './messages.js';
+
 function initModalRating(id) {
-  alert('Click Rating on workout card with id: ' + id);
   const modal = document.getElementById('modal-rating');
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
   const modalForm = document.getElementById('subscribe-details-form');
   const modalCloseBtn = document.getElementById('modal-close');
-
-  // const openModalBtn = document.getElementById('open-modal-btn');
-
-  // if (openModalBtn) {
-  //   openModalBtn.addEventListener('click', () => {
-  //     modal.style.display = 'flex';
-  //   });
-  // }
-
-  // if (!emailInput || !firstSendBtn || !modal || !modalForm || !modalCloseBtn) {
-  //   console.error('Modal or button elements not found');
-  //   return;
-  // }
-
-  // let capturedEmail = '';
-
-  // const modalEmailInput = document.getElementById('modal-email');
 
   const ratingValue = document.getElementById('rating-value');
   const ratingStars = document.getElementById('rating-stars');
@@ -64,10 +48,14 @@ function initModalRating(id) {
   }
 
   function highlightStars(value) {
-    const stars = ratingStars.textContent
-      .split('')
-      .map((_, i) => (i < Math.round(value) ? '★' : '☆'));
-    ratingStars.textContent = stars.join('');
+    const starIcons = ratingStars.querySelectorAll('.star-icon');
+    starIcons.forEach((star, index) => {
+      if (index < Math.round(value)) {
+        star.classList.add('active');
+      } else {
+        star.classList.remove('active');
+      }
+    });
   }
 
   // Close the modal window
@@ -92,38 +80,36 @@ function initModalRating(id) {
     const rate = selectedRating;
 
     if (!emailInput.checkValidity()) {
-      alert('Please enter a valid email address.');
+      Messages.error('Please enter a valid email address.');
       return;
     }
 
     try {
-      const response = await fetch(
-        `https://your-energy.b.goit.study/api/exercises/${exerciseID}/rating`,
-        {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ rate, email, review }),
-        }
-      );
+      const response = await fetch(`https://your-energy.b.goit.study/api/exercises/${exerciseID}/rating`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ rate, email, review }),
+      });
 
       if (response.status === 409) {
-        alert('You have already submitted a review for this exercise.');
+        Messages.warning('You have already submitted a review for this exercise.');
         return;
       } else if (!response.ok) {
         const error = await response.json();
-        alert(`Error ${response.status}: ${error.message || 'Unknown error'}`);
+        Messages.error(`Error ${response.status}: ${error.message || 'Unknown error'}`);
         return;
       } else {
-        alert('Your feedback has been submitted!');
+        Messages.success('Your feedback has been submitted successfully!');
+        modalForm.reset();
+        modal.style.display = 'none';
+        selectedRating = 0;
+        ratingValue.textContent = '0.0';
+        highlightStars(0);
       }
-
-      alert('Your feedback has been submitted!');
-      modalForm.reset();
-      modal.style.display = 'none';
     } catch (err) {
-      alert('Something went wrong. Please try again later.');
+      Messages.error('Something went wrong. Please try again later.');
     }
   });
-};
+}
 
 export default initModalRating;
