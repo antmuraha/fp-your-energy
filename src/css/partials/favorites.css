@@ -1,15 +1,81 @@
 .favorites-content {
-  position: fixed;
-  height: 100dvh;
+  /* TODO: Не скролиться з цим але без - ламає розділення сторінок*/
+  /*position: fixed;*/
+  /*height: 100dvh;*/
   width: 100dvw;
-  background: grey;
-  padding-top: 10rem;
+  background: #f4f4f4;
   opacity: 1;
   transition: visibility 0s, opacity 0.3s linear;
+  padding: 10rem 20px 0;
 }
 
 .favorites-content.hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.favorites-title {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 38px;
+  letter-spacing: -0.02em;
+}
+
+.favorites-content-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.favorites-content-info {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.favorites-content-left {
+  display: flex;
+  row-gap: 20px;
+}
+
+.favorites-content-left-container {
+  display: flex;
+  row-gap: 20px;
+}
+
+.favorites-content-image {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 1440px) {
+  .favorites-content-wrapper {
+    flex-direction: row;
+    column-gap: 32px;
+  }
+}
+
+.favorites-content-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px;
+}
+
+@media screen and (min-width: 767px) {
+  .favorites-content-list {
+    column-gap: 16px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .favorites-content-left-container {
+    flex-direction: row;
+    column-gap: 20px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .favorites-content-left {
+    flex-direction: column;
+  }
 }
