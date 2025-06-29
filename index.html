@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/fp-your-energy/index.js"></script>
     <link rel="modulepreload" crossorigin href="/fp-your-energy/assets/vendor-DVYrn7a6.js">
     <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/vendor-D_nxXpU-.css">
-    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-CAraRyR4.css">
+    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-DzXGq1UM.css">
   </head>
   <body>
     <header class="header">
@@ -696,19 +696,18 @@
     <label for="rating" class="modal-label">Rating</label>
     <div class="rating-container">
       <span id="rating-value">0.0</span>
-      <div class="stars" id="rating-stars">★★★★★</div>
+      <div class="stars" id="rating-stars">
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+        <img src="/fp-your-energy/img/icons/rating_star.svg" alt="star" class="star-icon" />
+      </div>
     </div>
 
     <form id="subscribe-details-form">
-      <input
-        type="email"
-        name="email"
-        id="modal-email"
-        placeholder="Email"
-        required
-        pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
-      />
-      <input type="text" name="comment" placeholder="Your comment" required />
+      <input type="email" name="email" id="modal-email" placeholder="Email" required pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" />
+      <textarea name="comment" placeholder="Your comment" required rows="3"></textarea>
       <button type="submit">Send</button>
     </form>
   </div>
