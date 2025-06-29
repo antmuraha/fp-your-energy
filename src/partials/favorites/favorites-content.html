@@ -1,9 +1,26 @@
+<style>
+
+</style>
+
 <div id="favorites-content" class="favorites-content hidden">
-  <h1>Favorites</h1>
   <div class="favorites-content-wrapper">
-    <div class="favorites-content-left">
-      <load src="partials/components/quote.html" />
-      <load src="partials/exercise-norm.html" />
+    <div class="favorites-content-info">
+      <h1 class="favorites-title">Favorites</h1>
+      <div class="favorites-content-left">
+        <load src="partials/components/quote.html" />
+        <div class="favorites-content-left-container">
+          <load src="partials/exercise-norm.html" />
+          <picture class="favorites-content-image">
+            <source srcset="/img/image-second-page.webp 1x, /img/image-second-page@2x.webp 2x"
+                    media="(min-width: 1440px)">
+            <source srcset="/img/image-second-page.webp 1x, /img/image-second-page@2x.webp 2x"
+                    media="(min-width: 768px)">
+            <source srcset="/img/image-second-page.webp 1x, /img/image-second-page@2x.webp 2x">
+
+            <img style="width: 100%;" src="/img/image-second-page.webp" alt="Background image">
+          </picture>
+        </div>
+      </div>
     </div>
     <div class="favorites-content-list">
       <load src="partials/components/workout-card.html" />
