@@ -58,7 +58,7 @@
     top: 0;
     right: -100%;
     width: 280px;
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--color-bg-dark);
     z-index: 1000;
     transition: right var(--transition) ease-in-out;

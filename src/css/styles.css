@@ -34,6 +34,9 @@
 @import url('./partials/footer.css');
 @import url('./partials/favorites.css');
 
+@import url('./partials/favorites-content-wrapper.css');
+@import url('./partials/workout-card.css');
+
 @import url('./partials/loader.css');
 
 /* Hero Section Template Styles */

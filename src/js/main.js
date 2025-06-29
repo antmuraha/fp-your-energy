@@ -1,6 +1,8 @@
 import client from './api/client';
+import { ExercisesConstants } from './api/constans';
 import FlatStateManager from './FlatStateManager';
 import HashtagManager from './HashtagManager';
+import renderExercisesList from './renders/render-exercises-list';
 import renderFilterList from './renders/render_filter_list';
 
 const hashtagManager = new HashtagManager();
@@ -9,6 +11,7 @@ const store = new FlatStateManager({
   loading: false,
   // Selected group for exercises
   selectedGroup: 'Muscles',
+  selectedFilter: null,
 
   // Filters
   filtersPage: 1,
@@ -18,6 +21,9 @@ const store = new FlatStateManager({
 
   // Exercises
   exercises: [],
+  exercisesPage: 1,
+  exercisesPerPage: 10,
+  exercisesTotalPages: null,
 
   // Favorites
   showFavorites: hashtagManager.isActive('#favorites'),
@@ -57,6 +63,7 @@ exercisesGroupsFilter.addEventListener('click', e => {
     const group = e.target.dataset.group;
     console.log('Selected category:', group);
     store.setState('selectedGroup', group);
+    store.setState('selectedFilter', null);
   }
 });
 
@@ -110,4 +117,93 @@ store.subscribe('filters', (filters, state) => {
 
   console.log('Filters list:', list);
   renderFilterList(list);
+});
+store.subscribe('selectedFilter', (selectedFilter, state) => {
+  // If filter is selected, hide the filter list
+  if (selectedFilter) {
+    renderFilterList(null, selectedFilter);
+  }
+});
+
+const exercisesFiltersList = document.querySelector('.exercises-filters-list');
+exercisesFiltersList?.addEventListener('click', e => {
+  if (e.target.classList.contains('exercises-card-filter')) {
+    const filter = e.target.querySelector("[data-filter]").dataset.filter;
+    console.log('Selected filter:', filter);
+    store.setState('selectedFilter', filter);
+  }
+});
+
+function exerciseGetDataKey(perPage, page, group, filter) {
+  return `${perPage}-${page}-${group}-${filter}`;
+}
+
+store.subscribe('selectedFilter', async (selectedFilter, state) => {
+  if (!selectedFilter) {
+    console.log('No filter selected, skipping exercises fetch');
+    return;
+  }
+
+  const currentKey = exerciseGetDataKey(
+    state.exercisesPerPage,
+    state.exercisesPage,
+    state.selectedGroup,
+    selectedFilter
+  );
+  const isExist = state.exercises.some(item => item._key === currentKey);
+  if (isExist) {
+    console.log('Exercises already loaded for this filter:', selectedFilter, state.exercises);
+    // No need to fetch again, just update the state for rendering
+    store.setState('exercises', [...state.exercises]);
+    return;
+  }
+
+  const paramName =
+    ExercisesConstants.MAP_GROUPS_TO_QUERY_PARAMS[state.selectedGroup];
+  const query = {
+    [paramName]: selectedFilter,
+    page: state.exercisesPage,
+    limit: state.exercisesPerPage,
+  };
+
+  client.getExercises(query).then(response => {
+    if (response.isError) {
+      console.error('Error fetching exercises:', response.error);
+      return;
+    }
+    const { results, page, perPage, totalPages } = response.data;
+    console.log('Exercises data:', response.data);
+    store.setState('exercises', [
+      ...state.exercises,
+      ...results.map(item => ({
+        ...item,
+        _group: state.selectedGroup,
+        _key: exerciseGetDataKey(perPage, page, state.selectedGroup, selectedFilter)
+      })),
+    ]);
+    store.setState('exercisesPage', page);
+    store.setState('exercisesPerPage', perPage);
+    store.setState('exercisesTotalPages', totalPages);
+  });
+});
+
+
+
+store.subscribe('exercises', (exercises, state) => {
+  const { exercisesPerPage, exercisesPage, selectedGroup, selectedFilter } = state;
+
+  const list = exercises.filter(
+    item =>
+      item._key ===
+      exerciseGetDataKey(exercisesPerPage, exercisesPage, selectedGroup, selectedFilter)
+  );
+
+  console.log('Exercises list:', {exercises, list});
+  renderExercisesList(list, selectedFilter);
+});
+store.subscribe('selectedFilter', (selectedFilter, state) => {
+  // If filter is not selected, hide the exercises list
+  if (!selectedFilter) {
+    renderExercisesList(false, selectedFilter);
+  }
 });

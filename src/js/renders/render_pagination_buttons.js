@@ -17,11 +17,6 @@ function renderPaginationButtons(id, currentPage, totalPages) {
     return;
   }
 
-  if (totalPages <= 3) {
-    arrowButtonsLeft.style.display = 'none';
-    arrowButtonsRight.style.display = 'none';
-  }
-
   pageButtons.innerHTML = ''; // Clear existing buttons
   for (let i = 1; i <= totalPages; i++) {
     const button = document.createElement('button');
