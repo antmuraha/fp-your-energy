@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { api } from './api/index.js';
 
 const description = document.querySelector('.quote-description');
 const author = document.querySelector('.quote-author');
@@ -11,17 +11,18 @@ async function loadQuote() {
     description.textContent = savedQuote.quote.quote;
     author.textContent = savedQuote.quote.author;
   } else {
-    try {
-      const { data: quote } = await axios.get("https://your-energy.b.goit.study/api/quote");
+    const { data: quote, isError, error } = await api.get('/quote');
+    if (isError) {
+      // Todo: Implement UI for Error
+    } else {
       description.textContent = quote.quote;
       author.textContent = quote.author;
       localStorage.setItem(
         'quoteOfTheDay',
-        JSON.stringify({ date: today, quote })
+        JSON.stringify({ date: today, quote }),
       );
-    } catch (error) {
-      console.error('Something is wrong during getting quote', error);
     }
   }
 }
+
 loadQuote();

@@ -14,38 +14,27 @@
       as="style"
     />
     <!-- Preload styles for production -->
-    <link rel="preload" href="./css/styles.css" as="stylesheet" />
+    <link rel="preload" href="/css/styles.css" as="stylesheet" />
     <!-- Link styles for development -->
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
   </head>
   <body>
-    <!-- The header content will be here -->
     <load src="./partials/header.html" />
     <load src="./partials/mobile-menu.html" />
     <main class="main-content">
-      <!-- The Hero content will be here with #hero-->
       <load src="./partials/hero_section.html" />
       <load src="./partials/tags.html" />
-      <button id="open-modal-btn" class="open-modal-btn">
-        Give a rating button
-      </button>
-      <!-- End Hero section -->
-
-      <!-- The Exercises content will be here with #exercises-->
-
-      <!-- Example-->
-      <load src="./partials/part_1.html" />
-      <load src="./partials/part_1.html" />
-      <load src="./partials/part_1.html" />
+      <load src="./partials/exercises/exercises-section.html" />
     </main>
-    <!-- The footer content will be here with #footer -->
-    <load src="./partials/footer.html" />
-    <script type="module" src="./js/footer.js"></script>
     <div id="modals-container"></div>
-    <script type="module" src="./js/footer-subscription-form.js"></script>
-
-    <!-- Below, insert the modals -->
+    <load src="./partials/footer.html" />
+    <load src="./partials/favorites/favorites-content.html" />
+    <script type="module" src="./js/main.js"></script>
     <script src="./js/header.js" type="module"></script>
-    <script type="module" src="./js/some-script.js" async></script>
+    <script src="./js/quote.js" type="module"></script>
+    <script type="module" src="./js/subscribe.js"></script>
+    <script type="module" src="./js/some-script.js"></script>
+    <script type="module" src="./js/footer-subscription-form.js"></script>
+    <load src="./partials/render-templates.html" />
   </body>
 </html>
