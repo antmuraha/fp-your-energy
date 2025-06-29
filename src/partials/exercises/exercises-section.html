@@ -1,134 +1,52 @@
-<section id="exercises" class="exercises-section">
-  <div class="exercises-header">
+<div class="exercises-header">
     <h2>Exercises</h2>
     <load src="partials/category-tabs.html" />
   </div>
   <div class="exercises-content">
-    <div class="exercises-left-bar">
-      <div class="exercises-left-quote">
-        <div>
-          <h3>Quote of the day</h3>
-          <p>
-            Quote of the day A lot of times I find that people who are blessed
-            with the most talent don't ever develop that attitude, and the ones
-            who aren't blessed in that way are the most competitive and have the
-            biggest heart.
-          </p>
-          <p>Tom Brady</p>
+</div>
+<section id="exercises" class="exercises-section">
+    <div class="exercises-content">
+        <div class="exercises-left">
+            <load src="partials/components/quote.html" />
+            <picture>
+                <source srcset="/img/image.webp 1x, /img/image@2x.webp 2x" />
+                <img src="/img/image.webp" alt="Exercise motivation" class="exercise-motivation-img" />
+            </picture>
+            <div class="exercise-norm-block">
+                <div class="exercise-norm-header">
+                    <div class="exercise-norm-icon">
+                        <img src="/img/icons/icon.svg" alt="Norm icon" />
+                    </div>
+                    <div class="exercise-norm-content-col">
+                        <div class="exercise-norm-title-label-group">
+                            <span class="exercise-norm-title">110 min</span>
+                            <span class="exercise-norm-label">Daily norm of sports</span>
+                        </div>
+                        <div class="exercise-norm-description">
+                            The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic physical activity throughout the week for adults aged 18-64. However, what happens if we adjust that number to 110 minutes every day? While it might seem like a
+                            high number to hit, dedicating 110 minutes daily to sporting activities may offer unparalleled benefits to physical health, mental well-being, and overall quality of life.
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="exercises-left">
-        <div class="exercises-left-img-container">
-          <img
-            class="exercises-left-img"
-            src="../../public/img/image@2x.webp"
-            alt="sportive girls with bottles of water"
-          />
-        </div>
-      </div>
-      <div class="exercises-left-daily-norm">
-        <div class="exercises-left-daily-norm-logo">
-          <svg width="34" height="32">
-            <use href="../../public/img/sprite.svg#icon-logo"></use>
-          </svg>
-        </div>
-        <div class="exercises-left-daily-norm-header">
-          <h3 class="exercises-left-daily-norm-time">110 min</h3>
-          <p class="exercises-left-daily-norm-title">Daily norm of sports</p>
-        </div>
-        <div class="exercises-daily-sportive-norm-text">
-          <p>
-            The World Health Organization recommends at least 150 minutes of
-            moderate-intensity aerobic physical activity throughout the week for
-            adults aged 18-64. However, what happens if we adjust that number to
-            110 minutes every day? While it might seem like a high number to
-            hit, dedicating 110 minutes daily to sporting activities may offer
-            unparalleled benefits to physical health, mental well-being, and
-            overall quality of life.
-          </p>
-        </div>
-      </div>
-    </div>
     <div class="exercises-wrapper">
-      <div class="exercises-filters">
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="abductors"
-          image="'https://ftp.goit.study/img/power-pulse/filters/abductors_ymfukx.jpg'"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="abs"
-          image="https://ftp.goit.study/img/power-pulse/filters/abs_bdi0dw.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="adductors"
-          image="https://ftp.goit.study/img/power-pulse/filters/adductors_fmkryf.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="biceps"
-          image="https://ftp.goit.study/img/power-pulse/filters/biceps_rnrxog.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="calves"
-          image="https://ftp.goit.study/img/power-pulse/filters/calves_vzdk8o.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="cardiovascular system"
-          image="https://ftp.goit.study/img/power-pulse/filters/cardiovascular_system_ooip0r.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="delts"
-          image="https://ftp.goit.study/img/power-pulse/filters/delts_ui5hy5.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="forearms"
-          image="https://ftp.goit.study/img/power-pulse/filters/forearms_bw15z9.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="glutes"
-          image="https://ftp.goit.study/img/power-pulse/filters/glutes_dtcdzf.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="hamstrings"
-          image="https://ftp.goit.study/img/power-pulse/filters/hamstrings_i5rz3w.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="lats"
-          image="https://ftp.goit.study/img/power-pulse/filters/lats_zolre8.jpg"
-        />
-        <load
-          src="partials/exercises/card-filter.html"
-          group="Muscles"
-          filter="levator scapulae"
-          image="https://ftp.goit.study/img/power-pulse/filters/levator_scapulae_v7bfsw.jpg"
-        />
-      </div>
-      <div class="exercises-list hidden"></div>
-      <load
-        src="partials/components/pagination-buttons.html"
-        id="exercises-list-pagination-buttons"
-      />
+    <div class="exercises-filters">
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="abductors" image="'https://ftp.goit.study/img/power-pulse/filters/abductors_ymfukx.jpg'"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="abs" image="https://ftp.goit.study/img/power-pulse/filters/abs_bdi0dw.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="adductors" image="https://ftp.goit.study/img/power-pulse/filters/adductors_fmkryf.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="biceps" image="https://ftp.goit.study/img/power-pulse/filters/biceps_rnrxog.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="calves" image="https://ftp.goit.study/img/power-pulse/filters/calves_vzdk8o.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="cardiovascular system" image="https://ftp.goit.study/img/power-pulse/filters/cardiovascular_system_ooip0r.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="delts" image="https://ftp.goit.study/img/power-pulse/filters/delts_ui5hy5.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="forearms" image="https://ftp.goit.study/img/power-pulse/filters/forearms_bw15z9.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="glutes" image="https://ftp.goit.study/img/power-pulse/filters/glutes_dtcdzf.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="hamstrings" image="https://ftp.goit.study/img/power-pulse/filters/hamstrings_i5rz3w.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="lats" image="https://ftp.goit.study/img/power-pulse/filters/lats_zolre8.jpg"/>
+        <load src="partials/exercises/card-filter.html" group="Muscles" filter="levator scapulae" image="https://ftp.goit.study/img/power-pulse/filters/levator_scapulae_v7bfsw.jpg"/>
     </div>
-  </div>
+    <div class="exercises-list hidden"></div>
+    <load src="partials/components/pagination-buttons.html" id="exercises-list-pagination-buttons" />
+    </div>
+    </div>
 </section>
