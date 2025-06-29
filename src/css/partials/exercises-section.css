@@ -1,7 +1,12 @@
 .exercises-section {
   width: 100%;
   display: flex;
+  flex-direction: column-reverse;
   gap: 2rem;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 }
 
 .exercises-header {
@@ -20,10 +25,16 @@
 }
 
 .exercises-filters {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  row-gap: 32px;
-  column-gap: 12px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 32px;
+    column-gap: 15px;
+  }
 }
 
 .exercises-card-filter {
@@ -43,11 +54,9 @@
 .exercises-card-filter h3,
 .exercises-card-filter div[data-group] {
   margin: 0;
-  z-index: 1;
 }
 
 .exercises-content {
-/* <<<<<<< HEAD */
   display: flex;
   flex-direction: column;
   gap: 32px;
