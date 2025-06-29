@@ -9,12 +9,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css?family=Manrope:400,600,700"
+      href="https://fonts.googleapis.com/css?family=DM+Sans:400,600,700"
       rel="preload"
       as="style"
     />
     <!-- Preload styles for production -->
-    <link rel="preload" href="/css/styles.css" as="stylesheet" />
+    <link rel="preload" as="style" href="/css/styles.css" as="stylesheet" />
     <!-- Link styles for development -->
     <link rel="stylesheet" href="/css/styles.css" />
   </head>
@@ -29,15 +29,16 @@
     <div id="modals-container"></div>
     <load src="./partials/footer.html" />
     <load src="./partials/favorites/favorites-content.html" />
-    <script type="module" src="./js/main.js"></script>
+    <script type="module" src="./js/main.js" async></script>
     <script src="./js/header.js" type="module"></script>
-    <script src="./js/quote.js" type="module"></script>
-    <script type="module" src="./js/subscribe.js"></script>
-    <script type="module" src="./js/some-script.js"></script>
+    <script type="module" src="./js/subscribe.js" async></script>
+    <script type="module" src="./js/some-script.js" async></script>
+    <load src="./partials/components/modal.html" />
+    <load src="./partials/render-templates.html" />
     <script type="module" src="./js/form_rating.js"></script>
     <script type="module" src="./js/modal_add_to_favorites.js"></script>
     <script type="module" src="./js/modal_set_rating.js"></script>
     <load src="/partials/modal_rating.html" />
-    <load src="./partials/render-templates.html" />
+    <!-- <span class="loader"></span> -->
   </body>
 </html>

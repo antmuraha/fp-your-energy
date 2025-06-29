@@ -23,6 +23,7 @@
 /* Components style */
 @import url('./partials/components/social-links.css');
 @import url('./partials/components/pagination.css');
+@import url('./partials/components/modal.css');
 
 /* Sections style */
 @import url('./partials/header.css');

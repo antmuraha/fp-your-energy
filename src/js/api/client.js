@@ -71,6 +71,11 @@ const removeFromFavorites = async id => {
   sendStateChanges('favorites', favorites);
 };
 
+const isFavorite = async id => {
+  // Check if Exercise is Favorite
+  return localFavorites.get().some(item => item._id === id);
+};
+
 export default {
   getFilters,
   getQuoteOfDay,
@@ -80,4 +85,5 @@ export default {
   subscribe,
   addToFavorites,
   removeFromFavorites,
+  isFavorite,
 };
