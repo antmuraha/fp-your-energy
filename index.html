@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/fp-your-energy/index.js"></script>
     <link rel="modulepreload" crossorigin href="/fp-your-energy/assets/vendor-DVYrn7a6.js">
     <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/vendor-D_nxXpU-.css">
-    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-D8Qguk6g.css">
+    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-BCrdUt9L.css">
   </head>
   <body>
     <header class="header">
@@ -242,7 +242,6 @@
       <p  class="quote-description {=$mode}">A lot of times I find that people who are blessed with the most talent don't ever develop that attitude, and
         the ones who aren't blessed in that way are the most competitive and have the biggest heart.</p>
       <p class="quote-author {=$mode}">Tom Brady</p>
-    </div>
   </div>
 </div>
 
@@ -253,26 +252,33 @@
                 <source srcset="/fp-your-energy/img/image.webp 1x, /fp-your-energy/img/image@2x.webp 2x" />
                 <img src="/fp-your-energy/img/image.webp" alt="Exercise motivation" class="exercise-motivation-img" />
             </picture>
-            <div class="exercise-norm-block">
-                <div class="exercise-norm-header">
-                    <div class="exercise-norm-icon">
-                        <img src="/fp-your-energy/img/icons/icon.svg" alt="Norm icon" />
-                    </div>
-                    <div class="exercise-norm-content-col">
-                        <div class="exercise-norm-title-label-group">
-                            <span class="exercise-norm-title">110 min</span>
-                            <span class="exercise-norm-label">Daily norm of sports</span>
-                        </div>
-                        <div class="exercise-norm-description">
-                            The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic physical activity throughout the week for adults aged 18-64. However, what happens if we adjust that number to 110 minutes every day? While it might seem like a
-                            high number to hit, dedicating 110 minutes daily to sporting activities may offer unparalleled benefits to physical health, mental well-being, and overall quality of life.
-                        </div>
-                    </div>
-                </div>
-            </div>
+           <div class="exercise-norm-block">
+  <div class="exercise-norm-header">
+    <div class="exercise-norm-icon">
+      <img src="/fp-your-energy/img/icons/icon.svg" alt="Norm icon" />
+    </div>
+    <div class="exercise-norm-content-col">
+      <div class="exercise-norm-title-label-group">
+        <span class="exercise-norm-title">110 min</span>
+        <span class="exercise-norm-label">Daily norm of sports</span>
+      </div>
+      <div class="exercise-norm-description">
+        The World Health Organization recommends at least 150 minutes of
+        moderate-intensity aerobic physical activity throughout the week for
+        adults aged 18-64. However, what happens if we adjust that number to 110
+        minutes every day? While it might seem like a high number to hit,
+        dedicating 110 minutes daily to sporting activities may offer
+        unparalleled benefits to physical health, mental well-being, and overall
+        quality of life.
+      </div>
+    </div>
+  </div>
+</div>
+
         </div>
     <div class="exercises-wrapper">
-    <div class="exercises-filters">
+    <div class="exercises-lists">
+        <div class="exercises-filters-list">
         <div
   class="exercises-card-filter"
   style="
@@ -453,10 +459,11 @@
   <div data-group="Muscles">Muscles</div>
 </div>
 
+        </div>
+        <div class="exercises-workout-list"></div>
     </div>
-    <div class="exercises-list hidden"></div>
     <div id="exercises-list-pagination-buttons" class="pagination">
-  <div class="arrow-buttons arrow-buttons-left">
+  <div class="arrow-buttons arrow-buttons-left" style="display: none;">
     <button class="page-button arrow double disabled">
       <svg class="pagination-arrow-icon">
         <use href="./img/sprite.svg#icon-angle-small-left"></use>
@@ -477,7 +484,7 @@
     <button class="page-button">3</button>
     <span class="pagination-ellipsis">...</span>
   </div>
-  <div class="arrow-buttons arrow-buttons-right">
+  <div class="arrow-buttons arrow-buttons-right" style="display: none;">
     <button class="page-button arrow">
       <svg class="pagination-arrow-icon">
         <use href="./img/sprite.svg#icon-angle-right-left"></use>
@@ -603,199 +610,62 @@
   </div>
 </footer>
 
-    <style>
-    .favorites-workout-card {
-        min-width: 335px;
-        height: 141px;
-        border-radius: 15px;
-        background-color: #FFFFFF;
-        display: flex;
-        flex-direction: column;
-        row-gap: 25px;
-        padding: 16px;
-    }
-
-    /* HEADER START*/
-    .favorites-workout-card-header {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .favorites-workout-card-type-delete {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 8px;
-    }
-
-    .favorites-workout-card-type {
-        border: 1px solid #242424;
-        border-radius: 15px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 5px 8px;
-    }
-
-    .favorites-workout-card-type {
-        font-weight: 500;
-        font-size: 12px;
-        color: #242424;
-    }
-
-    .favorites-workout-card-delete {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 16px;
-        height: 16px;
-    }
-
-    .favorites-workout-card-start {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        column-gap: 8px;
-    }
-
-    .favorites-workout-card-start-text {
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 18px;
-    }
-
-    .favorites-workout-card-start-icon {
-        width: 16px;
-        height: 16px;
-    }
-
-    /* HEADER END */
-
-    /* BODY START */
-
-    .favorites-workout-card-body {
-        display: flex;
-        flex-direction: column;
-        row-gap: 18px;
-    }
-
-    .favorites-workout-card-title-container {
-        display: flex;
-        align-items: center;
-        column-gap: 18px;
-    }
-
-    .favorites-workout-card-icon {
-
-    }
-
-    .favorites-workout-card-title {
-        font-weight: 400;
-        font-size: 20px;
-        line-height: 20px;
-    }
-
-    .favorites-workout-card-details {
-        display: flex;
-        column-gap: 10px;
-    }
-
-    .favorites-workout-card-detail {
-        display: flex;
-        column-gap: 2px;
-    }
-
-    .favorites-workout-card-detail-title {
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 18px;
-        color: #24242466;
-        white-space: nowrap;
-    }
-
-    .favorites-workout-card-detail-value {
-        font-weight: 400;
-        font-size: 12px;
-        line-height: 18px;
-        color: #242424;
-        max-width: 40px;
-
-        /* single line truncation */
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    /* BODY END */
-</style>
-
-<div id="favorites-content" class="favorites-content hidden">
-  <div class="favorites-workout-card">
-    <div class="favorites-workout-card-header">
-      <div class="favorites-workout-card-type-delete">
-        <div class="favorites-workout-card-type">WORKOUT</div>
-        <button class="favorites-workout-card-delete">
-          <svg width="16" height="16">
-            <use href="/fp-your-energy/img/icons/trash-mini.svg" />
-          </svg>
-        </button>
-      </div>
-      <button class="favorites-workout-card-start">
-        <span class="favorites-workout-card-start-text">Start</span>
-        <svg width="16" height="16" class="favorites-workout-card-start-icon">
-          <use href="/fp-your-energy/img/icons/arrow-right.svg" />
+    <div id="favorites-content" class="favorites-content hidden">
+  <h1>Favorites</h1>
+  <div class="favorites-content-wrapper">
+    <div class="favorites-content-left">
+      <div class="quote {=$mode}">
+  <div class="run-icon-container">
+    <svg class="run-icon" width="18" height="20">
+      <use href="./img/sprite.svg#icon-run-icon"></use>
+    </svg>
+  </div>
+  <div class="quote-right">
+    <div class="quote-text">
+        <p class="quote-title {=$mode}">Quote of the day</p>
+        <svg class="run-icon" width="24" height="24">
+          <use href="./img/sprite.svg#icon-inverted-commas"></use>
         </svg>
-      </button>
-    </div>
-    <div class="favorites-workout-card-body">
-      <div class="favorites-workout-card-title-container">
-          <svg class="favorites-workout-card-icon" width="24" height="24">
-            <use href="/fp-your-energy/img/icons/run-icon-dark.svg" />
-          </svg>
-        <span class="favorites-workout-card-title">Air bike</span>
       </div>
-      <div class="favorites-workout-card-details">
-        <div class="favorites-workout-card-detail">
-          <span class="favorites-workout-card-detail-title">
-            Burned calories:
-          </span>
-          <span class="favorites-workout-card-detail-value">312 / 3 min</span>
-        </div>
-        <div class="favorites-workout-card-detail">
-          <span class="favorites-workout-card-detail-title">
-            Body part:
-          </span>
-          <span class="favorites-workout-card-detail-value">Waist</span>
-        </div>
-        <div class="favorites-workout-card-detail">
-          <span class="favorites-workout-card-detail-title">
-            Target:
-          </span>
-          <span class="favorites-workout-card-detail-value">Abs</span>
-        </div>
+      <p  class="quote-description {=$mode}">A lot of times I find that people who are blessed with the most talent don't ever develop that attitude, and
+        the ones who aren't blessed in that way are the most competitive and have the biggest heart.</p>
+      <p class="quote-author {=$mode}">Tom Brady</p>
+  </div>
+</div>
+
+
+
+
+      <div class="exercise-norm-block">
+  <div class="exercise-norm-header">
+    <div class="exercise-norm-icon">
+      <img src="/fp-your-energy/img/icons/icon.svg" alt="Norm icon" />
+    </div>
+    <div class="exercise-norm-content-col">
+      <div class="exercise-norm-title-label-group">
+        <span class="exercise-norm-title">110 min</span>
+        <span class="exercise-norm-label">Daily norm of sports</span>
+      </div>
+      <div class="exercise-norm-description">
+        The World Health Organization recommends at least 150 minutes of
+        moderate-intensity aerobic physical activity throughout the week for
+        adults aged 18-64. However, what happens if we adjust that number to 110
+        minutes every day? While it might seem like a high number to hit,
+        dedicating 110 minutes daily to sporting activities may offer
+        unparalleled benefits to physical health, mental well-being, and overall
+        quality of life.
       </div>
     </div>
   </div>
 </div>
 
-    <template id="templates">
-  <div
-  class="exercises-card-filter"
-  style="
-    background: linear-gradient(
-        0deg,
-        rgba(17, 17, 17, 0.5) 0%,
-        rgba(17, 17, 17, 0.5) 100%
-      ),
-      url(&quot;{=$image}&quot;) lightgray -56.383px -2px / 129.575% 103.719% no-repeat;
-  "
->
-  <h3 data-filter="{=$filter}">{=$filter}</h3>
-  <div data-group="{=$group}">{=$group}</div>
+    </div>
+    <div class="favorites-content-list">favorites List</div>
+  </div>
 </div>
 
-  <!-- Subscription Modal -->
-<div id="subscribe-modal" style="display: none" class="modal-overlay">
+    <!-- Rating Modal -->
+<div id="modal-rating" style="display: none" class="modal-overlay">
   <div class="modal-content">
     <button id="modal-close" class="modal-close-btn" aria-label="Close modal">
       <img src="/fp-your-energy/img/icons/хIcon.svg" alt="Close" />
@@ -819,6 +689,66 @@
       <input type="text" name="comment" placeholder="Your comment" required />
       <button type="submit">Send</button>
     </form>
+  </div>
+</div>
+
+    <template id="templates">
+  <div
+  class="exercises-card-filter"
+  style="
+    background: linear-gradient(
+        0deg,
+        rgba(17, 17, 17, 0.5) 0%,
+        rgba(17, 17, 17, 0.5) 100%
+      ),
+      url(&quot;{=$image}&quot;) lightgray -56.383px -2px / 129.575% 103.719% no-repeat;
+  "
+>
+  <h3 data-filter="{=$filter}">{=$filter}</h3>
+  <div data-group="{=$group}">{=$group}</div>
+</div>
+
+  <div class="favorites-workout-card" data-id="">
+  <div class="favorites-workout-card-header">
+    <div class="favorites-workout-card-type-delete">
+      <div class="favorites-workout-card-type">WORKOUT</div>
+      <button class="favorites-workout-card-delete delete">
+        <svg width="16" height="16">
+          <use href="/fp-your-energy/img/icons/trash-mini.svg" />
+        </svg>
+      </button>
+      <div class="favorites-workout-card-rating rating">5.0</div>
+    </div>
+    <button class="favorites-workout-card-start start">
+      <span class="favorites-workout-card-start-text">Start</span>
+      <svg width="16" height="16" class="favorites-workout-card-start-icon">
+        <use href="/fp-your-energy/img/icons/arrow-right.svg" />
+      </svg>
+    </button>
+  </div>
+  <div class="favorites-workout-card-body">
+    <div class="favorites-workout-card-title-container">
+      <svg class="favorites-workout-card-icon" width="24" height="24">
+        <use href="/fp-your-energy/img/icons/run-icon-dark.svg" />
+      </svg>
+      <span class="favorites-workout-card-title title">Air bike</span>
+    </div>
+    <div class="favorites-workout-card-details">
+      <div class="favorites-workout-card-detail">
+        <span class="favorites-workout-card-detail-title">
+          Burned calories:
+        </span>
+        <span class="favorites-workout-card-detail-value burned-calories">312 / 3 min</span>
+      </div>
+      <div class="favorites-workout-card-detail">
+        <span class="favorites-workout-card-detail-title group"> Body part: </span>
+        <span class="favorites-workout-card-detail-value group-target">Waist</span>
+      </div>
+      <div class="favorites-workout-card-detail">
+        <span class="favorites-workout-card-detail-title"> Target: </span>
+        <span class="favorites-workout-card-detail-value filter">Abs</span>
+      </div>
+    </div>
   </div>
 </div>
 
