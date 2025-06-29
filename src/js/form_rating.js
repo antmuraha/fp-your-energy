@@ -1,39 +1,26 @@
-document.addEventListener('DOMContentLoaded', async () => {
-  const container = document.createElement('div');
-  document.body.appendChild(container);
-
-  try {
-    const res = await fetch('./partials/footer-subscription-form.html');
-    if (!res.ok) throw new Error('Failed to load modal HTML');
-    const html = await res.text();
-    container.innerHTML = html;
-  } catch (err) {
-    console.error('Error loading modal:', err);
-    return;
-  }
-
-  const emailInput = document.querySelector('.subscribe-input');
-  const firstSendBtn = document.querySelector('.subscribe-btn');
-  const modal = document.getElementById('subscribe-modal');
+function initModalRating(id) {
+  alert('Click Rating on workout card with id: ' + id);
+  const modal = document.getElementById('modal-rating');
+  modal.style.display = 'block';
   const modalForm = document.getElementById('subscribe-details-form');
   const modalCloseBtn = document.getElementById('modal-close');
 
-  const openModalBtn = document.getElementById('open-modal-btn');
+  // const openModalBtn = document.getElementById('open-modal-btn');
 
-  if (openModalBtn) {
-    openModalBtn.addEventListener('click', () => {
-      modal.style.display = 'flex';
-    });
-  }
+  // if (openModalBtn) {
+  //   openModalBtn.addEventListener('click', () => {
+  //     modal.style.display = 'flex';
+  //   });
+  // }
 
-  if (!emailInput || !firstSendBtn || !modal || !modalForm || !modalCloseBtn) {
-    console.error('Modal or button elements not found');
-    return;
-  }
+  // if (!emailInput || !firstSendBtn || !modal || !modalForm || !modalCloseBtn) {
+  //   console.error('Modal or button elements not found');
+  //   return;
+  // }
 
-  let capturedEmail = '';
+  // let capturedEmail = '';
 
-  const modalEmailInput = document.getElementById('modal-email');
+  // const modalEmailInput = document.getElementById('modal-email');
 
   const ratingValue = document.getElementById('rating-value');
   const ratingStars = document.getElementById('rating-stars');
@@ -137,4 +124,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       alert('Something went wrong. Please try again later.');
     }
   });
-});
+};
+
+export default initModalRating;

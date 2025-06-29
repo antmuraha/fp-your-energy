@@ -4,6 +4,12 @@ const GROUPS = {
   Equipment: 'Equipment',
 };
 
+const MAP_GROUPS_TO_QUERY_PARAMS = {
+  [GROUPS.BODY_PARTS]: 'bodypart',
+  [GROUPS.Muscles]: 'muscles',
+  [GROUPS.Equipment]: 'equipment',
+};
+
 const BODYPART = {
   BACK: 'back',
   CARDIO: 'cardio',
@@ -72,6 +78,7 @@ const EQUIPMENT = {
 
 export const ExercisesConstants = {
   GROUPS,
+  MAP_GROUPS_TO_QUERY_PARAMS,
   BODYPART,
   MUSCLES,
   EQUIPMENT,

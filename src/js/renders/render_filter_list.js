@@ -1,7 +1,12 @@
 import renderCardFilter from './render_card_filter';
 
-function renderFilterList(data) {
-  const filterList = document.querySelector('.exercises-filters');
+function renderFilterList(data, selectedFilter) {
+  const filterList = document.querySelector('.exercises-filters-list');
+  if (selectedFilter) {
+    filterList?.classList.add('hidden');
+    return;
+  }
+  filterList?.classList.remove('hidden');
 
   data.forEach((item, idx) => {
     const { filter, imgURL, name } = item;
@@ -12,8 +17,8 @@ function renderFilterList(data) {
         group: filter,
       });
     } else {
-      const filterItem = document.createElement('load');
-      filterItem.setAttribute('src', 'partials/exercises/card-filter.html');
+      const filterItem = document.createElement('div');
+      filterItem.setAttribute('src', imgURL);
       filterItem.setAttribute('group', filter.group);
       filterItem.setAttribute('filter', filter.filter);
       filterItem.setAttribute('image', filter.image);

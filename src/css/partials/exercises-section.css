@@ -24,7 +24,10 @@
   display: flex;
 }
 
-.exercises-filters {
+.exercises-lists {
+}
+
+.exercises-filters-list {
   display: flex;
   gap: 20px;
   flex-direction: column;
@@ -34,6 +37,19 @@
     grid-template-columns: repeat(3, 1fr);
     row-gap: 32px;
     column-gap: 15px;
+  }
+}
+
+.exercises-workout-list {
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 32px;
+    column-gap: 16px;
   }
 }
 
@@ -49,6 +65,11 @@
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+
+  &>* {
+    pointer-events: none;
+  }
 }
 
 .exercises-card-filter h3,
@@ -57,9 +78,14 @@
 }
 
 .exercises-content {
+  flex: 1;
   display: flex;
-  flex-direction: column;
   gap: 32px;
+  flex-direction: column;
+
+  @media screen and (min-width: 1440px) {
+    flex-direction: row;
+  }
 }
 
 /* Exercises Left Block Quote */
