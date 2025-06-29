@@ -26,6 +26,15 @@ class FlatStateManager {
   
     constructor(initialState = {}) {
       this.#state = { ...initialState };
+      this.startListening();
+    }
+
+    startListening() {
+      document.addEventListener("stateChange", (event) => {
+        const { branch, data } = event.detail;
+        console.log("Received new state:", branch, data);
+        this.setState(branch, data);
+      });
     }
   
     getState(key) {
