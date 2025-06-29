@@ -1,45 +1,49 @@
 <div class="backdrop">
     <div class="modal">
-        <button type="button">
-            <svg class="modal-close">
-                <use href="../../public/img/icons/x.svg" />
+        <button type="button" class="modal-close-btn">
+            <svg>
+                <use href="../../public/img/icons/close.svg" />
             </svg>
         </button>
-        <h2 class="modal-title">Air bake</h2>
-        <div class="modal-rating">
-            <p>4.0</p>
-            <div>icons</div>
-        </div>
-        <hr>
-        <table>
-            <thead>
-                <tr>
-                    <th>Target</th>
-                    <th>Body Part</th>
-                    <th>Equipment</th>
-                    <th>Popular</th>
-                    <th>Burned calories</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Abs</td>
-                    <td>Waist</td>
-                    <td>Body weight</td>
-                    <td>150</td>
-                    <td>323/3 min</td>
-                </tr>
-            </tbody>
-        </table>
-        <hr>
-        <p class="modal-description">This refers to your core muscles, which include the rectus abdominis, obliques, and
-            transverse abdominis. They're
-            essential for maintaining posture, stability, and generating force in many movements. Exercises that target
-            the abs
-            include crunches, leg raises, and planks.</p>
-        <div class="modal-buttons">
-            <button type="button">Add to favorites</button>
-            <button type="button">Give a rating</button>
+        <img src="" alt="exercise demo" class="modal-img">
+        <div class="modal-main-content">
+            <h2 class="modal-title"></h2>
+            <div class="modal-rating">
+                <p class="modal-rate-value">4.0</p>
+                <div>icons</div>
+            </div>
+            <hr>
+            <div class="exercise-info-cont">
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Target</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Body Part</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Equipment</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Popular</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+                <div class="exercise-info-item">
+                    <p class="exercise-info-title">Burned calories</p>
+                    <p class="exercise-info-text"></p>
+                </div>
+            </div>
+
+            <hr>
+            <p class="modal-description"></p>
+            <div class="modal-buttons">
+                <button type="button" class="btn-favorite">Add to favorites <svg class="icon-favorite">
+                        <use hrer="../../public/img/icons/heart.svg" />
+                    </svg></button>
+                <button type="button" class="btn-rating">Give a rating</button>
+            </div>
         </div>
     </div>
 </div>
