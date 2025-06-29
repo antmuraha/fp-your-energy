@@ -7,6 +7,7 @@ import { Messages } from './messages';
 import renderExercisesList from './renders/render-exercises-list';
 import renderFavoritesList from './renders/render_favorites_list';
 import renderFilterList from './renders/render_filter_list';
+import renderPaginationButtons from './renders/render_pagination_buttons';
 import getParentId from './unitls/find_parent_id';
 
 const hashtagManager = new HashtagManager();
@@ -77,7 +78,14 @@ function filtersGetDataKey(perPage, page, group) {
   return `${perPage}-${page}-${group}`;
 }
 
-store.subscribe('selectedGroup', async (selectedGroup, state) => {
+let filtersUpdating = false;
+async function updateFilters(state) {
+  if (filtersUpdating) {
+    console.log('Filters are already being updated, skipping this call');
+    return;
+  }
+  filtersUpdating = true;
+  const {selectedGroup} = state;
   console.log('Selected category changed:', selectedGroup);
 
   const currentKey = filtersGetDataKey(
@@ -85,19 +93,22 @@ store.subscribe('selectedGroup', async (selectedGroup, state) => {
     state.filtersPage,
     selectedGroup
   );
-  const isExist = state.filters.some(item => item._key === currentKey);
-  if (isExist) {
+  const exist = state.filters.find(item => item._key === currentKey);
+  if (exist) {
     console.log('Filters already loaded for this group:', selectedGroup, state.filters);
     // No need to fetch again, just update the state for rendering
     store.setState('filters', [...state.filters]);
+    store.setState('filtersTotalPages', exist._total);
+    filtersUpdating = false;
     return;
   }
 
-  const response = await client.getFilters(selectedGroup);
+  const response = await client.getFilters(selectedGroup, state.filtersPage);
   console.log('Filters data:', selectedGroup, response, state);
 
   if (response.isError) {
     console.error('Error fetching filters:', response.error);
+    filtersUpdating = false;
     return;
   }
 
@@ -108,9 +119,17 @@ store.subscribe('selectedGroup', async (selectedGroup, state) => {
     ...results.map(item => ({
       ...item,
       _key: filtersGetDataKey(perPage, page, selectedGroup),
+      _total: totalPages,
     })),
   ]);
-});
+  store.setState('filtersPerPage', perPage);
+  store.setState('filtersTotalPages', totalPages);
+  filtersUpdating = false;
+};
+
+store.subscribe('selectedGroup', (_, state) => updateFilters(state));
+store.subscribe('filtersPage', (_, state) => updateFilters(state));
+
 
 store.subscribe('filters', (filters, state) => {
   const { filtersPerPage, filtersPage, selectedGroup } = state;
@@ -144,9 +163,17 @@ function exerciseGetDataKey(perPage, page, group, filter) {
   return `${perPage}-${page}-${group}-${filter}`;
 }
 
-store.subscribe('selectedFilter', async (selectedFilter, state) => {
+let exercisesUpdating = false;
+async function updateExercises(state) {
+  if (exercisesUpdating) {
+    console.log('Exercises are already being updated, skipping this call');
+    return;
+  }
+  exercisesUpdating = true;
+  const {selectedFilter} = state;
   if (!selectedFilter) {
     console.log('No filter selected, skipping exercises fetch');
+    exercisesUpdating = false;
     return;
   }
 
@@ -156,11 +183,13 @@ store.subscribe('selectedFilter', async (selectedFilter, state) => {
     state.selectedGroup,
     selectedFilter
   );
-  const isExist = state.exercises.some(item => item._key === currentKey);
-  if (isExist) {
+  const exist = state.exercises.find(item => item._key === currentKey);
+  if (exist) {
     console.log('Exercises already loaded for this filter:', selectedFilter, state.exercises);
     // No need to fetch again, just update the state for rendering
     store.setState('exercises', [...state.exercises]);
+    store.setState('exercisesTotalPages', exist._total);
+    exercisesUpdating = false;
     return;
   }
 
@@ -184,16 +213,18 @@ store.subscribe('selectedFilter', async (selectedFilter, state) => {
       ...results.map(item => ({
         ...item,
         _group: state.selectedGroup,
-        _key: exerciseGetDataKey(perPage, page, state.selectedGroup, selectedFilter)
+        _key: exerciseGetDataKey(perPage, page, state.selectedGroup, selectedFilter),
+        _total: totalPages,
       })),
     ]);
-    store.setState('exercisesPage', page);
     store.setState('exercisesPerPage', perPage);
     store.setState('exercisesTotalPages', totalPages);
+    exercisesUpdating = false;
   });
-});
+};
 
-
+store.subscribe('selectedFilter', (_, state) => updateExercises(state));
+store.subscribe('exercisesPage', (_, state) => updateExercises(state));
 
 store.subscribe('exercises', (exercises, state) => {
   const { exercisesPerPage, exercisesPage, selectedGroup, selectedFilter } = state;
@@ -226,10 +257,39 @@ document.querySelector('.favorites-content-list')?.addEventListener('click', e =
     client
       .removeFromFavorites(id)
       .then(() => {
-        Messages.error('Exercise removed from favorites');
+        Messages.success('Exercise removed from favorites');
       })
       .catch(error => {
         Messages.error('Failed to remove exercise from favorites');
       });
+  }
+});
+
+// Pagination
+function updatePaginationButtons(state) {
+  const { selectedFilter } = state;
+  if (!selectedFilter) {
+    renderPaginationButtons(state.filtersPage, state.filtersTotalPages);
+  } else {
+    renderPaginationButtons(state.exercisesPage, state.exercisesTotalPages);
+  }
+}
+
+store.subscribe('filtersTotalPages', (_, state) => updatePaginationButtons(state));
+store.subscribe('filtersPage', (_, state) => updatePaginationButtons(state));
+store.subscribe('exercisesTotalPages', (_, state) => updatePaginationButtons(state));
+store.subscribe('exercisesPage', (_, state) => updatePaginationButtons(state));
+store.subscribe('selectedGroup', (_, state) => updatePaginationButtons(state));
+store.subscribe('selectedFilter', (_, state) => updatePaginationButtons(state));
+
+document.querySelector('.page-buttons')?.addEventListener('click', e => {
+  const page = e.target.dataset.page;
+  if (page) {
+    const selectedFilter = store.getState("selectedFilter");
+    if (!selectedFilter) {
+      store.setState('filtersPage', Number(page));
+    } else {
+      store.setState('exercisesPage', Number(page));
+    }
   }
 });
