@@ -1,9 +1,5 @@
 import client from './api/client.js';
 import { ExercisesConstants } from './api/constans.js';
-import { devLogger } from './lib/utils/index.js';
-
-// test devLogger - should not log in PROD env
-devLogger.log('devLogger test');
 
 async function testClient() {
   const exercises = await client.getExercises();

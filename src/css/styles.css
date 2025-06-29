@@ -14,6 +14,7 @@
 @import url('./common/animations.css');
 
 @import url('./footer.css');
+@import url('./footer-subscription-form.css');
 @import url('./partials/components/quote.css');
 
 /* Controls style */
@@ -33,6 +34,9 @@
 
 @import url('./partials/footer.css');
 @import url('./partials/favorites.css');
+
+@import url('./partials/favorites-content-wrapper.css');
+@import url('./partials/workout-card.css');
 
 @import url('./partials/loader.css');
 

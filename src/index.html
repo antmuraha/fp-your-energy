@@ -1,40 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YOUR ENERGY</title>
-  <meta name="description" content="Description!" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css?family=Manrope:400,600,700" rel="preload" as="style" />
-  <!-- Preload styles for production -->
-  <link rel="preload" href="/css/styles.css" as="stylesheet" />
-  <!-- Link styles for development -->
-  <link rel="stylesheet" href="/css/styles.css" />
-</head>
-
-<body>
-  <load src="./partials/components/modal.html" />
-
-  <load src="./partials/header.html" />
-  <load src="./partials/mobile-menu.html" />
-  <main class="main-content">
-    <load src="./partials/hero_section.html" />
-    <!-- <load src="./partials/tags.html" /> -->
-    <!-- <load src="./partials/exercises/exercises-section.html" /> -->
-  </main>
-  <load src="./partials/footer.html" />
-  <load src="./partials/favorites/favorites-content.html" />
-  <script type="module" src="./js/main.js" async></script>
-  <script src="./js/header.js" type="module"></script>
-  <script type="module" src="./js/subscribe.js" async></script>
-  <script type="module" src="./js/some-script.js" async></script>
-  <script type="module" src="./js/modal.js"></script>
-  <load src="./partials/render-templates.html" />
-  <!-- <span class="loader"></span> -->
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YOUR ENERGY</title>
+    <meta name="description" content="Description!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css?family=Manrope:400,600,700"
+      rel="preload"
+      as="style"
+    />
+    <!-- Preload styles for production -->
+    <link rel="preload" href="/css/styles.css" as="stylesheet" />
+    <!-- Link styles for development -->
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <load src="./partials/components/modal.html" />
+    <load src="./partials/header.html" />
+    <load src="./partials/mobile-menu.html" />
+    <main class="main-content">
+      <load src="./partials/hero_section.html" />
+      <load src="./partials/tags.html" />
+      <load src="./partials/exercises/exercises-section.html" />
+    </main>
+    <div id="modals-container"></div>
+    <load src="./partials/footer.html" />
+    <load src="./partials/favorites/favorites-content.html" />
+    <script type="module" src="./js/main.js" async></script>
+    <script src="./js/header.js" type="module"></script>
+    <script type="module" src="./js/subscribe.js" async></script>
+    <script type="module" src="./js/some-script.js" async></script>
+    <load src="./partials/render-templates.html" />
+    <script type="module" src="./js/form_rating.js"></script>
+    <script type="module" src="./js/modal_add_to_favorites.js"></script>
+    <script type="module" src="./js/modal_set_rating.js"></script>
+    <load src="/partials/modal_rating.html" />
+    <!-- <span class="loader"></span> -->
+  </body>
 </html>

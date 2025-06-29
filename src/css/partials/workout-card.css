@@ -1,0 +1,132 @@
+.favorites-workout-card {
+  min-width: 335px;
+  height: 141px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 25px;
+  padding: 16px;
+}
+
+/* HEADER START*/
+.favorites-workout-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorites-workout-card-type-delete {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.favorites-workout-card-type {
+  border: 1px solid #242424;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 8px;
+}
+
+.favorites-workout-card-type {
+  font-weight: 500;
+  font-size: 12px;
+  color: #242424;
+}
+
+.favorites-workout-card-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+
+  &>* {
+    pointer-events: none;
+  }
+}
+
+.favorites-workout-card-rating {
+  cursor: pointer;
+}
+
+.favorites-workout-card-start {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 8px;
+
+  &> * {
+    pointer-events: none;
+  }
+}
+
+.favorites-workout-card-start-text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.favorites-workout-card-start-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* HEADER END */
+
+/* BODY START */
+
+.favorites-workout-card-body {
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+}
+
+.favorites-workout-card-title-container {
+  display: flex;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.favorites-workout-card-icon {
+}
+
+.favorites-workout-card-title {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.favorites-workout-card-details {
+  display: flex;
+  column-gap: 10px;
+}
+
+.favorites-workout-card-detail {
+  display: flex;
+  column-gap: 2px;
+}
+
+.favorites-workout-card-detail-title {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #24242466;
+  white-space: nowrap;
+}
+
+.favorites-workout-card-detail-value {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  color: #242424;
+  max-width: 40px;
+
+  /* single line truncation */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

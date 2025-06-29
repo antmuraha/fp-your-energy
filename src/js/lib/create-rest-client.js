@@ -1,5 +1,4 @@
-import { JsonParseError, HTTPResponseError, FetchError } from './errors';
-import { devLogger, attempt, objectToQueryString } from './utils';
+import { objectToQueryString } from './utils';
 
 /**
  * Creates a REST client factory function with predefined base domain
@@ -16,52 +15,54 @@ export const createRestClient = (baseDomain, handleError) => /**
  * @param {any} [options.body] - Request body
  * @returns {Promise<{data: any|null, error: Error|null, isError: boolean}>} Response with data or error
  */
-async (url, { method = 'GET', query, body }) => {
+(url, { method = 'GET', query, body }) => new Promise(async (resolve, reject) => {
   const queryString = objectToQueryString(query);
 
-  const fetchResult = await attempt(() => fetch(`${baseDomain}${url}${queryString}`, {
+  const fetchResult = await fetch(`${baseDomain}${url}${queryString}`, {
     method,
     body: JSON.stringify(body),
     headers: {
       'Content-Type': 'application/json',
     },
-  }));
+  });
 
-  if (fetchResult.isError) {
-    const error = new FetchError(`Error fetching ${url}${queryString}`, fetchResult.error);
-
-    devLogger.error(error.toString());
-
-    return {
-      data: null, error: error, isError: true,
-    };
+  if (fetchResult.status >= 500) {
+    reject({
+      status: fetchResult.status,
+      data: null,
+      error: fetchResult.statusText || 'Unknown error',
+      isError: true,
+    });
+    return;
   }
 
-  if (!fetchResult.data.ok) {
-    const error = new HTTPResponseError(`HTTP ${fetchResult.data.status} error in request ${url}${queryString}`, fetchResult.data.status);
+  let data = null;
+  try {
+    data = await fetchResult.json();
+  } catch (error) {
+    reject({
+      status: 500,
+      data: null,
+      error: 'Parse error',
+      isError: true,
+    });
+  }
+  
 
-    devLogger.error(error);
-
-    handleError?.[fetchResult.data.status]?.(error);
-
-    return {
-      data: null, error, isError: true,
-    };
+  if (fetchResult.status >= 400) {
+    reject({
+      status: fetchResult.status,
+      data: data,
+      error: fetchResult.statusText || 'Unknown error',
+      isError: true,
+    });
+    return;
   }
 
-  const { data, error, isError } = await attempt(() => fetchResult.data.json());
-
-  if (isError) {
-    const error = new JsonParseError(`Error parsing JSON in request ${url}${queryString}`);
-
-    devLogger.error(error);
-
-    return {
-      data: null, error, isError,
-    };
-  }
-
-  return {
-    data, error, isError,
-  };
-};
+  resolve({
+    status: fetchResult.status,
+    data,
+    error: null,
+    isError: false,
+  })
+});

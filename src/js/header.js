@@ -29,3 +29,25 @@ document.addEventListener('DOMContentLoaded', () => {
   updateSocialLinksVisibility();
   window.addEventListener('resize', updateSocialLinksVisibility);
 });
+
+// Navigation Home <---> Favorites
+document.addEventListener('DOMContentLoaded', () => {
+  const homeBtn = document.querySelector('.link-home-btn');
+  const favoritesBtn = document.querySelector('.link-favorites-btn');
+
+  function setActiveNav(active, inactive) {
+    active.classList.add('nav-btn-active');
+    active.classList.remove('nav-btn-inactive');
+
+    inactive.classList.add('nav-btn-inactive');
+    inactive.classList.remove('nav-btn-active');
+  }
+
+  homeBtn.addEventListener('click', e => {
+    setActiveNav(homeBtn, favoritesBtn);
+  });
+
+  favoritesBtn.addEventListener('click', e => {
+    setActiveNav(favoritesBtn, homeBtn);
+  });
+});

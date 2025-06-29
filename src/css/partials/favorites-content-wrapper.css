@@ -1,0 +1,8 @@
+.favorites-content-wrapper {
+    display: flex;
+    gap: 2rem;
+}
+
+.favorites-content-left {
+    flex-basis: 200px;
+}
