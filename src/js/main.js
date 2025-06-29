@@ -2,8 +2,12 @@ import client from './api/client';
 import { ExercisesConstants } from './api/constans';
 import FlatStateManager from './FlatStateManager';
 import HashtagManager from './HashtagManager';
+import localFavorites from './local_favorites';
+import { Messages } from './messages';
 import renderExercisesList from './renders/render-exercises-list';
+import renderFavoritesList from './renders/render_favorites_list';
 import renderFilterList from './renders/render_filter_list';
+import getParentId from './unitls/find_parent_id';
 
 const hashtagManager = new HashtagManager();
 
@@ -27,6 +31,7 @@ const store = new FlatStateManager({
 
   // Favorites
   showFavorites: hashtagManager.isActive('#favorites'),
+  favorites: localFavorites.get() || [],
 });
 
 const mainUnsubscribe = hashtagManager.subscribe('main', hash => {
@@ -49,6 +54,7 @@ store.subscribe('showFavorites', (showFavorites, state) => {
   const favoritesContent = document.querySelector('#favorites-content');
   if (showFavorites) {
     favoritesContent.classList.remove('hidden');
+    favoritesContent.style.setProperty('--height', `${window.innerHeight}px`);
   } else {
     favoritesContent.classList.add('hidden');
   }
@@ -205,5 +211,25 @@ store.subscribe('selectedFilter', (selectedFilter, state) => {
   // If filter is not selected, hide the exercises list
   if (!selectedFilter) {
     renderExercisesList(false, selectedFilter);
+  }
+});
+
+// Favorites
+store.subscribe('favorites', (favorites, state) => {
+  console.log('Favorites list:', favorites);
+  renderFavoritesList(favorites);
+});
+
+document.querySelector('.favorites-content-list')?.addEventListener('click', e => {
+  if (e.target.classList.contains('delete')) {
+    const id = getParentId(e.target);
+    client
+      .removeFromFavorites(id)
+      .then(() => {
+        Messages.error('Exercise removed from favorites');
+      })
+      .catch(error => {
+        Messages.error('Failed to remove exercise from favorites');
+      });
   }
 });

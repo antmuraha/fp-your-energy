@@ -1,12 +1,17 @@
 .favorites-content {
-  /* TODO: Не скролиться з цим але без - ламає розділення сторінок*/
-  /*position: fixed;*/
-  /*height: 100dvh;*/
+  --height: 100dvh;
+
+  position: fixed;
+  height: var(--height);
   width: 100dvw;
   background: #f4f4f4;
   opacity: 1;
   transition: visibility 0s, opacity 0.3s linear;
-  padding: 10rem 20px 0;
+  padding: 10rem 40px 10rem 20px;
+}
+
+.favorites-list {
+  
 }
 
 .favorites-content.hidden {
@@ -31,6 +36,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 20px;
+
+  @media screen and (min-width: 1440px) {
+    flex-basis: 494px;
+  }
 }
 
 .favorites-content-left {
@@ -57,13 +66,17 @@
 }
 
 .favorites-content-list {
+  flex: 1;
+}
+
+.favorites-list {
   display: grid;
   grid-template-columns: 1fr;
   row-gap: 20px;
 }
 
 @media screen and (min-width: 767px) {
-  .favorites-content-list {
+  .favorites-list{
     column-gap: 16px;
     grid-template-columns: 1fr 1fr;
   }
