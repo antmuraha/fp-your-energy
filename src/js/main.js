@@ -53,10 +53,13 @@ const mainUnsubscribe = hashtagManager.subscribe('main', hash => {
 store.subscribe('showFavorites', (showFavorites, state) => {
   console.log('Show favorites state changed:', showFavorites);
   const favoritesContent = document.querySelector('#favorites-content');
+  const main = document.querySelector('main');
   if (showFavorites) {
+    main?.classList.add('hidden');
     favoritesContent.classList.remove('hidden');
     favoritesContent.style.setProperty('--height', `${window.innerHeight}px`);
   } else {
+    main?.classList.remove('hidden');
     favoritesContent.classList.add('hidden');
   }
 });

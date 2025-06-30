@@ -1,13 +1,27 @@
 .favorites-content {
-  --height: 100dvh;
-
-  position: fixed;
-  height: var(--height);
-  width: 100dvw;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: #f4f4f4;
   opacity: 1;
   transition: visibility 0s, opacity 0.3s linear;
   padding: 10rem 40px 10rem 20px;
+}
+
+.favorites-content-left {
+    .favorites-content-left-container {
+       flex-direction: column;
+    }
+
+    @media screen and (min-width: 1440px) {
+      max-height: 70vh;
+      overflow-y: auto;
+      flex-basis: unset !important;
+
+      .exercise-norm-block {
+        width: unset !important;
+      }
+    }
 }
 
 .favorites-list {
@@ -90,5 +104,12 @@
 @media screen and (min-width: 375px) {
   .favorites-content-left {
     flex-direction: column;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .favorites-list {
+    max-height: 70vh;
+    overflow-y: auto;
   }
 }
