@@ -1,6 +1,5 @@
 .tabs-controls {
   display: flex;
-  justify-content: flex-end; /* tabs are on the right */
   gap: 32px;
   margin-bottom: 32px;
   padding-right: 32px;

@@ -12,7 +12,14 @@
 .exercises-header {
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 20px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 2rem;
+  }
 }
 
 .exercises-wrapper {
@@ -81,7 +88,7 @@
   flex: 1;
   display: flex;
   gap: 32px;
-  flex-direction: column;
+  flex-direction: column-reverse;
 
   @media screen and (min-width: 1440px) {
     flex-direction: row;
