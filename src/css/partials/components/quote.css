@@ -4,6 +4,14 @@
     border-radius: 20px;
     padding: 20px;
     display: flex;
+
+    @media screen and (min-width: 768px) {
+        max-width: 400px !important;
+    }
+
+    @media screen and (min-width: 1440px) {
+        max-width: unset !important;
+    }
 }
 
 @media screen and (min-width: 768px) {
