@@ -1,6 +1,5 @@
 .tags {
   width: 197px;
-  height: 72px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -33,15 +32,20 @@
   line-height: 24px;
   letter-spacing: 0px;
   box-sizing: border-box;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: #242424;
+    color: #ffffff;
+  }
 }
 
 @media (max-width: 900px) {
   .tags {
     width: 396px;
-    height: 32px;
   }
   .hero-tags {
-    flex-wrap: nowrap;
     gap: 10px;
   }
 }
@@ -49,10 +53,8 @@
 @media (max-width: 600px) {
   .tags {
     width: 333px;
-    height: 26px;
   }
   .hero-tags {
-    flex-wrap: nowrap;
     gap: 10px;
   }
 }
