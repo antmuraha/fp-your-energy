@@ -110,6 +110,8 @@ body.modal-open {
 }
 
 .btn-favorite {
+  display: flex;
+  align-items: center;
   padding: 12px 83px;
   border-radius: 30px;
   background: #f4f4f4;
