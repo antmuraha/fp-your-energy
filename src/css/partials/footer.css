@@ -311,7 +311,6 @@
   .footer__text-outer-wrap {
     display: flex;
     justify-content: space-between;
-    width: 704px;
     gap: 78px;
     margin-top: 64px;
   }
@@ -319,8 +318,7 @@
 
 @media screen and (min-width: 1440px) {
   .footer__text-outer-wrap {
-    width: 100%;
-    gap: 122px;
+    gap: 100px;
     margin-top: 70px;
   }
 }
@@ -334,13 +332,13 @@
 @media screen and (min-width: 768px) {
   .footer__text-inner-wrap {
     margin-top: 0px;
-    gap: 60px;
+    gap: 178px;
   }
 }
 
 @media screen and (min-width: 1440px) {
   .footer__text-inner-wrap {
-    gap: 187px;
+    gap: 498px;
   }
 }
 
