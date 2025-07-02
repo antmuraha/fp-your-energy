@@ -43,11 +43,7 @@ body.modal-open {
   width: 295px;
   height: 278px;
   border-radius: 12px;
-  background: linear-gradient(
-    0deg,
-    rgba(4, 4, 4, 0.2) 0%,
-    rgba(4, 4, 4, 0.2) 100%
-  );
+  background: linear-gradient(0deg, rgba(4, 4, 4, 0.2) 0%, rgba(4, 4, 4, 0.2) 100%);
   margin-bottom: 20px;
 }
 
@@ -120,7 +116,7 @@ body.modal-open {
   font-size: 14px;
   font-weight: 400;
   line-height: 1.29;
-  
+
   svg {
     background-color: transparent;
     stroke: currentColor;
