@@ -4,14 +4,50 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeBtn = document.getElementById('close-mob-menu');
   const socialLinks = document.querySelector('.social-links');
 
-  const updateSocialLinksVisibility = () => {
-    if (window.innerWidth <= 768) {
-      socialLinks.style.display = 'none';
-    } else {
-      socialLinks.style.display = '';
-    }
-  };
+  const homeBtn = document.querySelector('.link-home-btn');
+  const favoritesBtn = document.querySelector('.link-favorites-btn');
 
+  const homeMobileBtn = document.querySelector('.link-home-mobile');
+  const favoritesMobileBtn = document.querySelector('.link-favorites-mobile');
+
+  // --- NAVIGATION STATE FUNCTIONS ---
+  function setActiveNav(activeBtn, inactiveBtn) {
+    activeBtn.classList.add('nav-btn-active');
+    activeBtn.classList.remove('nav-btn-inactive');
+
+    inactiveBtn.classList.add('nav-btn-inactive');
+    inactiveBtn.classList.remove('nav-btn-active');
+  }
+
+  function detectPage() {
+    const isFavoritesPage = document.querySelector('#favorites-content') && !document.querySelector('#favorites-content').classList.contains('hidden');
+
+    if (isFavoritesPage) {
+      setActiveNav(favoritesBtn, homeBtn);
+      setActiveNav(favoritesMobileBtn, homeMobileBtn);
+    } else {
+      setActiveNav(homeBtn, favoritesBtn);
+      setActiveNav(homeMobileBtn, favoritesMobileBtn);
+    }
+  }
+
+  // --- NAVIGATION EVENTS ---
+  function handleNavClick(isFavorites = false) {
+    const content = document.getElementById('favorites-content');
+    if (!content) return;
+
+    content.classList.toggle('hidden', !isFavorites);
+    mobileMenu.classList.remove('open');
+    detectPage();
+  }
+
+  homeBtn.addEventListener('click', () => handleNavClick(false));
+  favoritesBtn.addEventListener('click', () => handleNavClick(true));
+
+  homeMobileBtn.addEventListener('click', () => handleNavClick(false));
+  favoritesMobileBtn.addEventListener('click', () => handleNavClick(true));
+
+  // --- BURGER MENU ---
   burgerBtn.addEventListener('click', () => {
     mobileMenu.classList.add('open');
   });
@@ -26,28 +62,31 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- SOCIAL ICON VISIBILITY ---
+  const updateSocialLinksVisibility = () => {
+    if (window.innerWidth <= 768) {
+      socialLinks.style.display = 'none';
+    } else {
+      socialLinks.style.display = '';
+    }
+  };
+
+  // --- REMOVE FOCUS AFTER CLICK ---
+  document.querySelectorAll('.link-icon').forEach(icon => {
+    icon.addEventListener('click', () => {
+      icon.blur();
+    });
+  });
+
   updateSocialLinksVisibility();
-  window.addEventListener('resize', updateSocialLinksVisibility);
-});
-
-// Navigation Home <---> Favorites
-document.addEventListener('DOMContentLoaded', () => {
-  const homeBtn = document.querySelector('.link-home-btn');
-  const favoritesBtn = document.querySelector('.link-favorites-btn');
-
-  function setActiveNav(active, inactive) {
-    active.classList.add('nav-btn-active');
-    active.classList.remove('nav-btn-inactive');
-
-    inactive.classList.add('nav-btn-inactive');
-    inactive.classList.remove('nav-btn-active');
-  }
-
-  homeBtn.addEventListener('click', e => {
-    setActiveNav(homeBtn, favoritesBtn);
+  window.addEventListener('resize', () => {
+    updateSocialLinksVisibility();
+    detectPage();
   });
 
-  favoritesBtn.addEventListener('click', e => {
-    setActiveNav(favoritesBtn, homeBtn);
-  });
+  window.addEventListener('hashchange', detectPage);
+  detectPage();
 });
+
+
+
