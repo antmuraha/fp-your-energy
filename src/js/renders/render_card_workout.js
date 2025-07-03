@@ -11,7 +11,6 @@ function renderCardWorkout(item, asFavorite = false) {
     newElement.querySelector('.delete').classList.add('hidden'); // Hide delete button for workout cards
     newElement.querySelector('.rating').textContent = item.rating; // Set rating for favorite workout cards
   } else {
-    newElement.querySelector('.start').classList.add('hidden');
     newElement.querySelector('.rating').classList.add('hidden'); // Hide rating for favorite workout cards
   }
   // rating
