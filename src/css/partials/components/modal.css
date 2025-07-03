@@ -45,6 +45,8 @@ body.modal-open {
   border-radius: 12px;
   background: linear-gradient(0deg, rgba(4, 4, 4, 0.2) 0%, rgba(4, 4, 4, 0.2) 100%);
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .modal-title {
@@ -63,6 +65,18 @@ body.modal-open {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
+  margin-right: 4px;
+}
+
+.star-rating-list {
+  display: flex;
+  gap: 4px;
+}
+
+.star-rating-icon {
+  width: 14px;
+  height: 13px;
+  fill: rgba(244, 244, 244, 0.2);
 }
 
 .exercise-info-cont {
@@ -92,7 +106,7 @@ body.modal-open {
 
 .modal-description {
   margin-top: 20px;
-  color: #f4f4f4;
+  color: rgba(244, 244, 244, 0.6);
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
@@ -107,6 +121,7 @@ body.modal-open {
 
 .btn-favorite {
   display: flex;
+  justify-content: center;
   align-items: center;
   padding: 12px 83px;
   border-radius: 30px;

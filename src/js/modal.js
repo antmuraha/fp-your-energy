@@ -27,6 +27,7 @@ async function toggleFavorite(id) {
       });
   }
 }
+
 function capitalizeFirstLetter(string) {
   if (typeof string === 'string') {
     return `${string.charAt(0).toUpperCase()}${string.slice(1)}`;
@@ -66,6 +67,11 @@ export async function openDetailsModal(id) {
   document.querySelector('.backdrop').classList.add('is-open');
 
   document.body.classList.add('modal-open');
+
+  const arrStar = document.querySelectorAll('.star-rating-icon');
+  for (let i = 0; i < Math.round(data.rating); ++i) {
+    arrStar[i].style.fill = '#eea10c';
+  }
 }
 
 export function closeDetailsModal() {
