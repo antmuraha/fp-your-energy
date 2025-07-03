@@ -39,6 +39,10 @@
   gap: 20px;
   flex-direction: column;
 
+  &.hidden {
+    display: none;
+  }
+
   @media screen and (min-width: 768px) {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -51,6 +55,11 @@
   display: flex;
   gap: 20px;
   flex-direction: column;
+
+  &.hidden {
+    display: none;
+  }
+
 
   @media screen and (min-width: 768px) {
     display: grid;
@@ -73,9 +82,16 @@
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  opacity: 1;
+  transition: opacity var(--primary-transition);
 
   &>* {
     pointer-events: none;
+  }
+
+  &.hidden {
+    pointer-events: none;
+    opacity: 0;
   }
 }
 

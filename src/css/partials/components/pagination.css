@@ -10,6 +10,10 @@
   margin-top: 32px;
   justify-content: center;
   gap: 20px;
+
+  &.hidden {
+    display: none;
+  }
 }
 
 .arrow-buttons {
@@ -82,8 +86,4 @@
 
 .page-button.arrow.disabled .pagination-arrow-icon {
   fill: var(--color-inactive-pagination);
-}
-
-.hidden {
-  display: none;
 }
