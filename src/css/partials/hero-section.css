@@ -22,10 +22,26 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
-
-  @media screen and (min-width: 940px) {
-    flex-direction: row;
+  .background-picture {
+      order: 1;
+    }
+  .tags-wrapper {
+    order: 2;
   }
+
+  @media screen and (min-width: 1140px) {
+    .background-picture {
+      order: 2;
+    }
+
+    .tags-wrapper {
+      order: 1;
+    }
+  }
+
+  /* @media screen and (min-width: 940px) {
+    flex-direction: row;
+  } */
 }
 
 .hero-header {
@@ -37,6 +53,7 @@
 .tags-wrapper {
   display: flex;
   align-items: self-end;
+  justify-content: flex-end;
 }
 
 .hero-title-icon {
