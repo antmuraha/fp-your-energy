@@ -9,3 +9,13 @@ container?.addEventListener('click', e => {
     openDetailsModal(id);
   }
 });
+
+
+const favoritesContainer = document.querySelector('.favorites-list');
+
+favoritesContainer?.addEventListener('click', e => {
+  if (e.target.classList.contains('start')) {
+    const id = getParentId(e.target);
+    openDetailsModal(id); // Same behavior as exercises list
+  }
+});
