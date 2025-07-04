@@ -7,6 +7,10 @@
   flex-direction: column;
   row-gap: 25px;
   padding: 16px;
+
+  .hidden {
+    display: none;
+  }
 }
 
 /* HEADER START*/
@@ -52,11 +56,22 @@
   cursor: pointer;
 }
 
+.favorites-workout-card-rating-container {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+
+  &> * {
+    pointer-events: none;
+  }
+}
+
 .exercise-rating-icon {
   fill: #eea10c;
   width: 14px;
   height: 13px;
-  margin-left: 4px;
+  margin-bottom: 3px;
 }
 
 .favorites-workout-card-start {
