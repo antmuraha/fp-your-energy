@@ -1,0 +1,32 @@
+form input,
+.search-input {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 30px;
+    border: 1px solid var(--color-bg);
+    background-color: var(--color-bg-dark);
+    color: rgba(244, 244, 244, 0.6);
+    transition: all var(--transition);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.28;
+}
+
+form input:focus,
+.search-input:focus {
+    outline: none;
+    border-color: orange;
+}
+
+form input:user-invalid {
+    border-color: #ee323d;
+}
+
+form input:user-valid {
+    border-color: #4dc274;
+}
+
+form input::placeholder,
+.search-input::placeholder {
+    color: rgba(244, 244, 244, 0.6);
+}

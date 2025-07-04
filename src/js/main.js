@@ -2,18 +2,24 @@ import client from './api/client';
 import { ExercisesConstants } from './api/constans';
 import FlatStateManager from './FlatStateManager';
 import HashtagManager from './HashtagManager';
+import initHeaderMainButtons from './header';
 import localFavorites from './local_favorites';
 import { Messages } from './messages';
 import renderExercisesList from './renders/render-exercises-list';
+import renderExercisesHeader from './renders/render_exercises-header';
 import renderFavoritesList from './renders/render_favorites_list';
 import renderFilterList from './renders/render_filter_list';
 import renderPaginationButtons from './renders/render_pagination_buttons';
+import renderSearchField from './renders/render_search_field';
+import initSearchField from './search_field';
 import getParentId from './unitls/find_parent_id';
 
 const hashtagManager = new HashtagManager();
-
+const isActiveFavorites = hashtagManager.isActive('#favorites');
 const store = new FlatStateManager({
   loading: false,
+  search: '',
+
   // Selected group for exercises
   selectedGroup: 'Muscles',
   selectedFilter: null,
@@ -31,16 +37,26 @@ const store = new FlatStateManager({
   exercisesTotalPages: null,
 
   // Favorites
-  showFavorites: hashtagManager.isActive('#favorites'),
+  showFavorites: isActiveFavorites,
   favorites: localFavorites.get() || [],
 });
+
+if (isActiveFavorites) {
+  document.body.classList.add('modal-open');
+}
 
 const mainUnsubscribe = hashtagManager.subscribe('main', hash => {
   console.log('Main hash changed:', hash);
 
   const mapActions = {
-    '#favorites': () => store.setState('showFavorites', true),
-    '': () => store.setState('showFavorites', false),
+    '#favorites': () => {
+      store.setState('showFavorites', true);
+      document.body.classList.add('modal-open');
+    },
+    '': () => {
+      store.setState('showFavorites', false);
+      document.body.classList.remove('modal-open');
+    },
   };
 
   try {
@@ -50,9 +66,11 @@ const mainUnsubscribe = hashtagManager.subscribe('main', hash => {
   }
 });
 
+initHeaderMainButtons(hashtagManager);
+
 store.subscribe('showFavorites', (showFavorites, state) => {
   console.log('Show favorites state changed:', showFavorites);
-  const favoritesContent = document.querySelector('#favorites-content');
+  const favoritesContent = document.querySelector('#favorites');
   const main = document.querySelector('main');
   if (showFavorites) {
     main?.classList.add('hidden');
@@ -133,6 +151,11 @@ async function updateFilters(state) {
 store.subscribe('selectedGroup', (_, state) => updateFilters(state));
 store.subscribe('filtersPage', (_, state) => updateFilters(state));
 
+store.subscribe('selectedFilter', renderExercisesHeader);
+
+initSearchField('', (value) => store.setState('search', value));
+store.subscribe('selectedFilter', (selectedFilter) => renderSearchField(!!selectedFilter));
+
 
 store.subscribe('filters', (filters, state) => {
   const { filtersPerPage, filtersPage, selectedGroup } = state;
@@ -162,8 +185,8 @@ exercisesFiltersList?.addEventListener('click', e => {
   }
 });
 
-function exerciseGetDataKey(perPage, page, group, filter) {
-  return `${perPage}-${page}-${group}-${filter}`;
+function exerciseGetDataKey(perPage, page, group, filter, search = '') {
+  return `${perPage}-${page}-${group}-${filter}-${search}`;
 }
 
 let exercisesUpdating = false;
@@ -184,7 +207,8 @@ async function updateExercises(state) {
     state.exercisesPerPage,
     state.exercisesPage,
     state.selectedGroup,
-    selectedFilter
+    selectedFilter,
+    state.search,
   );
   const exist = state.exercises.find(item => item._key === currentKey);
   if (exist) {
@@ -202,6 +226,7 @@ async function updateExercises(state) {
     [paramName]: selectedFilter,
     page: state.exercisesPage,
     limit: state.exercisesPerPage,
+    keyword: state.search,
   };
 
   client.getExercises(query).then(response => {
@@ -216,7 +241,7 @@ async function updateExercises(state) {
       ...results.map(item => ({
         ...item,
         _group: state.selectedGroup,
-        _key: exerciseGetDataKey(perPage, page, state.selectedGroup, selectedFilter),
+        _key: exerciseGetDataKey(perPage, page, state.selectedGroup, selectedFilter, state.search),
         _total: totalPages,
       })),
     ]);
@@ -228,14 +253,15 @@ async function updateExercises(state) {
 
 store.subscribe('selectedFilter', (_, state) => updateExercises(state));
 store.subscribe('exercisesPage', (_, state) => updateExercises(state));
+store.subscribe('search', (_, state) => updateExercises(state));
 
 store.subscribe('exercises', (exercises, state) => {
-  const { exercisesPerPage, exercisesPage, selectedGroup, selectedFilter } = state;
+  const { exercisesPerPage, exercisesPage, selectedGroup, selectedFilter, search } = state;
 
   const list = exercises.filter(
     item =>
       item._key ===
-      exerciseGetDataKey(exercisesPerPage, exercisesPage, selectedGroup, selectedFilter)
+      exerciseGetDataKey(exercisesPerPage, exercisesPage, selectedGroup, selectedFilter, search)
   );
 
   console.log('Exercises list:', {exercises, list});

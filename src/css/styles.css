@@ -13,9 +13,11 @@
 @import url('./common/base.css');
 @import url('./common/animations.css');
 
+@import url('./forms.css');
 @import url('./footer.css');
 @import url('./footer-subscription-form.css');
 @import url('./partials/components/quote.css');
+@import url('./partials/components/search_field.css');
 
 /* Controls style */
 @import url('./partials/controls/link-icon.css');
@@ -27,6 +29,7 @@
 
 /* Sections style */
 @import url('./partials/header.css');
+@import url('./partials/mobile-menu.css');
 @import url('./partials/hero-section.css');
 @import url('./partials/category-tabs.css');
 @import url('./partials/tags.css');

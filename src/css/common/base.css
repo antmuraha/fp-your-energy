@@ -103,3 +103,7 @@ textarea {
   width: 100%;
   margin-bottom: var(--section-margin);
 }
+
+.flex {
+  flex: 1;
+}
