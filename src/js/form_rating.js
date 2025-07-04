@@ -2,6 +2,7 @@ import { Messages } from './messages.js';
 
 function initModalRating(id) {
   const modal = document.getElementById('modal-rating');
+  const modalContent = modal?.querySelector('.modal-content');
   modal.style.display = 'flex';
   const modalForm = document.getElementById('subscribe-details-form');
   const modalCloseBtn = document.getElementById('modal-close');
@@ -59,12 +60,19 @@ function initModalRating(id) {
   }
 
   // Close the modal window
-  modalCloseBtn.addEventListener('click', () => {
+  modalContent.addEventListener('click', e => {
+    e.stopPropagation(); // Prevent click from closing the modal
+  });
+
+  function closeModal() {
     modal.style.display = 'none';
     selectedRating = 0;
     ratingValue.textContent = '0.0';
     highlightStars(0);
-  });
+  }
+
+  modalCloseBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', closeModal);
 
   // Submit the form
   modalForm.addEventListener('submit', async e => {

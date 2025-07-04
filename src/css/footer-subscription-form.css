@@ -73,6 +73,7 @@
   width: 24px;
   height: 24px;
   transition: opacity 0.2s ease;
+  color: #EEA10C;
 }
 
 .star-icon.active {
