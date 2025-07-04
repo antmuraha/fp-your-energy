@@ -1,5 +1,4 @@
 .favorites-workout-card {
-  min-width: 335px;
   height: 141px;
   border-radius: 15px;
   background-color: #ffffff;
@@ -10,6 +9,10 @@
 
   .hidden {
     display: none;
+  }
+
+  @media screen and (min-width: 440px) {
+    min-width: 335px;
   }
 }
 

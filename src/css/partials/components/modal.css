@@ -5,6 +5,7 @@ body.modal-open {
 .backdrop {
   position: fixed;
   z-index: 9999;
+  overflow: auto;
 
   padding: 20px;
   width: 100vw;
