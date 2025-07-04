@@ -1,18 +1,24 @@
 .tags {
-  width: 197px;
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+
+  @media screen and (min-width: 1140px) {
+    width: 197px;
+    }
 }
 .hero-tags {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media screen and (min-width: 1140px) {
+    flex-wrap: wrap;
+  }
 }
 .hero-tag {
   display: inline-flex;
@@ -46,7 +52,7 @@
     width: 396px;
   }
   .hero-tags {
-    gap: 10px;
+    gap: 8px;
   }
 }
 
@@ -55,6 +61,6 @@
     width: 333px;
   }
   .hero-tags {
-    gap: 10px;
+    gap: 8px;
   }
 }

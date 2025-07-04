@@ -188,6 +188,7 @@
   @media screen and (min-width: 768px) {
     flex-direction: row;
     flex-wrap: wrap;
+    /* max-width: 400px; */
   }
 
   @media screen and (min-width: 1440px) {
@@ -321,6 +322,15 @@
   letter-spacing: 0px;
   color: #242424;
   margin-top: 0;
+}
+
+
+.truncated-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .exercises-empty-message {
