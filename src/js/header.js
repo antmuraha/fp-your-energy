@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+function initHeaderMainButtons(hashtagManager) {
   const burgerBtn = document.getElementById('burgerBtn');
   const mobileMenu = document.getElementById('burgerMenu');
   const closeBtn = document.getElementById('close-mob-menu');
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function detectPage() {
-    const isFavoritesPage = document.querySelector('#favorites-content') && !document.querySelector('#favorites-content').classList.contains('hidden');
+    const isFavoritesPage = hashtagManager.isActive('#favorites');
 
     if (isFavoritesPage) {
       setActiveNav(favoritesBtn, homeBtn);
@@ -33,12 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- NAVIGATION EVENTS ---
   function handleNavClick(isFavorites = false) {
-    const content = document.getElementById('favorites-content');
-    if (!content) return;
-
-    content.classList.toggle('hidden', !isFavorites);
     mobileMenu.classList.remove('open');
-    detectPage();
+    setTimeout(detectPage, 50);
   }
 
   homeBtn.addEventListener('click', () => handleNavClick(false));
@@ -79,14 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   updateSocialLinksVisibility();
-  window.addEventListener('resize', () => {
-    updateSocialLinksVisibility();
-    detectPage();
-  });
-
-  window.addEventListener('hashchange', detectPage);
   detectPage();
-});
+};
 
-
-
+export default initHeaderMainButtons;

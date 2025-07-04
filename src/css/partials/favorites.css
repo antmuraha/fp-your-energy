@@ -2,10 +2,15 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  overflow: auto;
   background: #f4f4f4;
   opacity: 1;
   transition: visibility 0s, opacity 0.3s linear;
   padding: 10rem 40px 10rem 20px;
+
+  @media screen and (min-width: 1440px) {
+    padding: 8rem 40px 3rem 20px;
+  }
 }
 
 .favorites-content-left {

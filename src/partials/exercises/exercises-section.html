@@ -1,6 +1,9 @@
 <div class="exercises-header">
-    <h2>Exercises</h2>
+    <h2 class="exercises-header-container hidden">Exercises&nbsp;<span class="separator">/</span>&nbsp;<span class="filter">1111</span></h2>
+    <div class="exercises-search-wrapper">
+    <load src="partials/components/search_field.html" />
     <load src="partials/category-tabs.html" />
+    </div>
   </div>
   <div class="exercises-content">
 </div>
@@ -31,6 +34,7 @@
         <load src="partials/exercises/card-filter.html" group="Muscles" filter="levator scapulae" image="https://ftp.goit.study/img/power-pulse/filters/levator_scapulae_v7bfsw.jpg"/>
         </div>
         <div class="exercises-workout-list"></div>
+        <div class="exercises-empty-message hidden">No content found</div>
     </div>
     <load src="partials/components/pagination-buttons.html" id="exercises-list-pagination-buttons" />
     </div>

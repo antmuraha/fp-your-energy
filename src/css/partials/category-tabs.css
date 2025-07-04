@@ -1,7 +1,7 @@
 .tabs-controls {
   display: flex;
   gap: 32px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
   padding-right: 32px;
 }
 
