@@ -18,7 +18,7 @@
     <script type="module" crossorigin src="/fp-your-energy/index.js"></script>
     <link rel="modulepreload" crossorigin href="/fp-your-energy/assets/vendor-DVYrn7a6.js">
     <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/vendor-D_nxXpU-.css">
-    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-DcXhxIM3.css">
+    <link rel="stylesheet" crossorigin href="/fp-your-energy/assets/index-BrErTGyT.css">
   </head>
   <body>
     <header class="header">
@@ -218,13 +218,25 @@
 
 </section>
       <div class="exercises-header">
-    <h2>Exercises</h2>
+    <h2 class="exercises-header-container hidden">Exercises&nbsp;<span class="separator">/</span>&nbsp;<span class="filter">1111</span></h2>
+    <div class="exercises-search-wrapper">
+    <div class="search-field">
+  <input type="text" class="search-input" placeholder="Search" />
+  <svg class="search-icon" width="18" height="18" viewBox="0 0 32 32">
+    <use href="/fp-your-energy/img/sprite.svg#icon-search"></use>
+  </svg>
+  <svg class="clear-button" width="24" height="24" viewBox="0 0 32 32">
+    <use href="/fp-your-energy/img/sprite.svg#icon-close"></use>
+  </svg>
+</div>
+
     <div class="tabs-controls">
   <button class="tab-button active" data-group="Muscles">Muscles</button>
   <button class="tab-button" data-group="Body parts">Body parts</button>
   <button class="tab-button" data-group="Equipment">Equipment</button>
 </div>
 
+    </div>
   </div>
   <div class="exercises-content">
 </div>
@@ -466,6 +478,7 @@
 
         </div>
         <div class="exercises-workout-list"></div>
+        <div class="exercises-empty-message hidden">No content found</div>
     </div>
     <div id="exercises-list-pagination-buttons" class="pagination">
   <div class="arrow-buttons arrow-buttons-left" style="display: none;">
@@ -614,7 +627,7 @@
   </div>
 </footer>
 
-    <div id="favorites-content" class="favorites-content hidden">
+    <div id="favorites" class="favorites-content hidden">
   <h2 class="favorites-title">Favorites</h2>
   <div class="favorites-content-wrapper">
     <div class="favorites-content-info">
