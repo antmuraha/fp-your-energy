@@ -9,9 +9,11 @@ function renderCardWorkout(item, asFavorite = false) {
 
   if (!asFavorite) {
     newElement.querySelector('.delete').classList.add('hidden'); // Hide delete button for workout cards
-    newElement.querySelector('.rating').textContent = item.rating; // Set rating for favorite workout cards
+    newElement.querySelector('.rating-value').textContent = item.rating; // Set rating for favorite workout cards
+    newElement.querySelector('.favorites-workout-card-rating-container').classList.remove('hidden'); // Show rating for favorite workout cards
   } else {
-    newElement.querySelector('.rating').classList.add('hidden'); // Hide rating for favorite workout cards
+    newElement.querySelector('.delete').classList.remove('hidden');
+    newElement.querySelector('.favorites-workout-card-rating-container').classList.add('hidden');
   }
   // rating
   newElement.querySelector('.title').textContent = item.name;

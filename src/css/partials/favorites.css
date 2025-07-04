@@ -29,10 +29,6 @@
     }
 }
 
-.favorites-list {
-  
-}
-
 .favorites-content.hidden {
   visibility: hidden;
   opacity: 0;
@@ -63,6 +59,7 @@
 
 .favorites-content-left {
   display: flex;
+  flex-direction: column;
   row-gap: 20px;
 }
 
@@ -88,6 +85,16 @@
   flex: 1;
 }
 
+.favorites-empty-message {
+  margin: 20vh auto;
+  max-width: 550px;
+  text-align: center;
+
+  &.hidden {
+    display: none;
+  }
+}
+
 .favorites-list {
   display: grid;
   grid-template-columns: 1fr;
@@ -103,12 +110,6 @@
   .favorites-content-left-container {
     flex-direction: row;
     column-gap: 20px;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .favorites-content-left {
-    flex-direction: column;
   }
 }
 
