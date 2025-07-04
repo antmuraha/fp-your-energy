@@ -226,30 +226,6 @@
   }
 }
 
-.subscribe__form-input {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 30px;
-  border: 1px solid var(--color-bg);
-  background-color: var(--color-bg-dark);
-
-  color: rgba(244, 244, 244, 0.6);
-  transition: all var(--transition);
-}
-
-.subscribe__form-input:focus {
-  outline: none;
-  border-color: orange;
-}
-
-.subscribe__form-input:user-invalid {
-  border-color: #ee323d;
-}
-
-.subscribe__form-input:user-valid {
-  border-color: #4dc274;
-}
-
 @media screen and (min-width: 768px) {
   .subscribe__form-input {
     height: 48px;

@@ -13,6 +13,14 @@ function renderExercisesList(data, selectedFilter) {
     const element = renderCardWorkout(item);
     list.appendChild(element);
   });
+
+  if (data?.length === 0) {
+    const emptyMessage = document.querySelector('.exercises-empty-message');
+    emptyMessage.classList.remove('hidden');
+  } else {
+    const emptyMessage = document.querySelector('.exercises-empty-message');
+    emptyMessage.classList.add('hidden');
+  }
 }
 
 export default renderExercisesList;
