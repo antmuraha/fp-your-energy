@@ -42,7 +42,7 @@ const store = new FlatStateManager({
 });
 
 if (isActiveFavorites) {
-  document.body.classList.add('modal-open');
+  document.documentElement.classList.add('modal-open');
 }
 
 const mainUnsubscribe = hashtagManager.subscribe('main', hash => {
@@ -51,11 +51,11 @@ const mainUnsubscribe = hashtagManager.subscribe('main', hash => {
   const mapActions = {
     '#favorites': () => {
       store.setState('showFavorites', true);
-      document.body.classList.add('modal-open');
+      document.documentElement.classList.add('modal-open');
     },
     '': () => {
       store.setState('showFavorites', false);
-      document.body.classList.remove('modal-open');
+      document.documentElement.classList.remove('modal-open');
     },
   };
 
