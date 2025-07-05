@@ -22,6 +22,7 @@
   flex-direction: column;
   justify-content: space-between;
   gap: 20px;
+  max-width: 100%;
   .background-picture {
       order: 1;
     }
