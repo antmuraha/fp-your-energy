@@ -66,7 +66,7 @@ export async function openDetailsModal(id) {
 
   document.querySelector('.backdrop').classList.add('is-open');
 
-  document.body.classList.add('modal-open');
+  document.documentElement.classList.add('modal-open');
 
   const arrStar = document.querySelectorAll('.star-rating-icon');
   for (let i = 0; i < Math.round(data.rating); ++i) {
@@ -76,7 +76,7 @@ export async function openDetailsModal(id) {
 
 export function closeDetailsModal() {
   document.querySelector('.backdrop').classList.remove('is-open');
-  document.body.classList.remove('modal-open');
+  document.documentElement.classList.remove('modal-open');
 }
 
 document.querySelector('.modal-close-btn').addEventListener('click', closeDetailsModal);

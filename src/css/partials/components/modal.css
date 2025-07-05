@@ -1,5 +1,9 @@
-body.modal-open {
-  overflow: hidden;
+html.modal-open {
+  overflow-x: unset;
+  
+  body {
+    overflow: hidden;
+  }
 }
 
 .backdrop {
